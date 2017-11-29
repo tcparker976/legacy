@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-import Paper from 'material-ui/Paper';
-import { cyan100 } from 'material-ui/styles/colors';
 import axios from 'axios';
 import SearchBar from '../components/SearchBar';
 import MovieList from '../components/MovieList';
-import { fetchMovie1, fetchMovie2 } from '../actions/MovieAction';
+import { fetchMovie1 } from '../actions/MovieAction';
 
 class SearchBox extends Component {
   constructor() {
@@ -20,16 +16,10 @@ class SearchBox extends Component {
       secondaryMovieList: [],
     };
 
-    this.style = {
-      padding: '25px',
-    };
-
     this.imgUrl = 'https://image.tmdb.org/t/p/w92';
-    this.chipColor = cyan100;
 
     this.onMovieSearch = this.onMovieSearch.bind(this);
     this.fetchPrimaryMovie = this.fetchPrimaryMovie.bind(this);
-    this.fetchSecondaryMovie = this.fetchSecondaryMovie.bind(this);
   }
 
   onMovieSearch(query, type) {
@@ -47,49 +37,20 @@ class SearchBox extends Component {
     this.props.fetchMovie1(id);
   }
 
-  fetchSecondaryMovie(id) {
-    this.setState({ secondaryMovieList: [] });
-    this.props.fetchMovie2(id);
-  }
-
   render() {
     const hasPrimaryMovieList = this.state.primaryMovieList.length > 0;
-    const hasSecondaryMovieList = this.state.secondaryMovieList.length > 0;
-    const { primaryMovie, secondaryMovie } = this.props;
+    const { primaryMovie } = this.props;
+    const { primaryMovieList } = this.state;
     return (
-      <Paper zDepth={2} style={this.style}>
+      <div>
+        This is searchbox 
         <SearchBar
           onMovieSearch={this.onMovieSearch}
           floatingLabelText="Search Primary Movie"
           type="primary"
-        />
-        {hasPrimaryMovieList &&
-        <MovieList
-          movies={this.state.primaryMovieList}
-          fetchMovie={this.fetchPrimaryMovie}
-        />}
-        {!hasPrimaryMovieList && primaryMovie.title &&
-        <Chip style={{ margin: 'auto' }} backgroundColor={this.chipColor}>
-          <Avatar src={this.imgUrl + primaryMovie.images[0]} />
-          {primaryMovie.title}
-        </Chip>}
-        {primaryMovie.title &&
-        <SearchBar
-          onMovieSearch={this.onMovieSearch}
-          floatingLabelText="Search Secondary Movie"
-          type="secondary"
-        />}
-        {hasSecondaryMovieList &&
-        <MovieList
-          movies={this.state.secondaryMovieList}
-          fetchMovie={this.fetchSecondaryMovie}
-        />}
-        {!hasSecondaryMovieList && secondaryMovie.title &&
-        <Chip style={{ margin: 'auto' }} backgroundColor={this.chipColor}>
-          <Avatar src={this.imgUrl + secondaryMovie.images[0]} />
-          {secondaryMovie.title}
-        </Chip>}
-      </Paper>
+        />      
+        <MovieList movies={primaryMovieList} fetchMovie={this.fetchPrimaryMovie} />
+      </div>
     );
   }
 }
@@ -107,12 +68,12 @@ SearchBox.propTypes = {
   }).isRequired,
 };
 
-function mapStateToProps({ primaryMovie, secondaryMovie }) {
-  return { primaryMovie, secondaryMovie };
+function mapStateToProps({ primaryMovie }) {
+  return { primaryMovie };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMovie1, fetchMovie2 }, dispatch);
+  return bindActionCreators({ fetchMovie1 }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);

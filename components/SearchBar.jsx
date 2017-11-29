@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TextField from 'material-ui/TextField';
 
 class SearchBar extends Component {
   constructor() {
@@ -17,7 +16,6 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-
     this.props.onMovieSearch(this.state.term, this.props.type);
     this.setState({ term: '' });
   }
@@ -25,9 +23,9 @@ class SearchBar extends Component {
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>
-        <TextField
-          hintText="Insert Movie Name"
-          floatingLabelText={this.props.floatingLabelText}
+        <input
+          type="text"
+          placeholder="Insert Movie Name"
           value={this.state.term}
           onChange={this.onInputChange}
         />

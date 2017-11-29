@@ -9,3 +9,10 @@ body {
 .recharts-wrapper {
   margin: 0 auto;
 }
+
+.movie-list-grid {
+  margin: 2em;
+  display: grid; 
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+}
