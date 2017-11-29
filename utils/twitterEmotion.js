@@ -1,10 +1,11 @@
 const axios = require('axios');
+const config = require('../config/config.js');
 
 const twitterApiUrl = 'https://api.twitter.com/1.1/search/tweets.json';
-const twitterToken = process.env.TWITTERAPI;
+const twitterToken = process.env.TWITTERAPI || config.TWITTERAPI;
 
 const watsonApiUrl = 'https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze';
-const watsonToken = process.env.WATSONAPI;
+const watsonToken = process.env.WATSONAPI || config.WATSONAPI;
 
 const getEmotions = function (text) {
   return axios.get(
