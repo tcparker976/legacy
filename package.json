@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "node app",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon app.js",
     "test": "mocha specs --recursive --timeout 15000 --exit",
     "heroku-postbuild": "npm install --only=dev --dev && webpack -p --config ./webpack.config.js --progress"
   },
@@ -50,6 +52,7 @@
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
     "supertest": "^3.0.0"
   }
 }

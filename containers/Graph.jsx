@@ -8,7 +8,6 @@ function Graph(props) {
     <div id="graph">
       <LineChart width={1000} height={400} data={props.graphData}>
         <Line name={props.primaryMovie.title || ' '} type="monotone" dataKey="primaryTrendVolume" stroke="#8884d8" />
-        <Line name={props.secondaryMovie.title || ' '} type="monotone" dataKey="secondaryTrendVolume" stroke="#FF0000" />
         <CartesianGrid stroke="#ccc" />
         <XAxis dataKey="date">
           <Label value="Date" offset={0} position="insideBottom" />
@@ -25,10 +24,7 @@ Graph.propTypes = {
   graphData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   primaryMovie: PropTypes.shape({
     title: PropTypes.string,
-  }).isRequired,
-  secondaryMovie: PropTypes.shape({
-    title: PropTypes.string,
-  }).isRequired,
+  }).isRequired
 };
 
 function mapStateToProps({ graphData }) {

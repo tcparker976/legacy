@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Paper from 'material-ui/Paper';
 import Title from '../components/Title';
 import Graph from './Graph';
 import MovieInfo from '../components/MovieInfo';
@@ -9,31 +8,23 @@ import MovieInfo from '../components/MovieInfo';
 const style = { padding: '35px' };
 
 function MovieDetail(props) {
+  const { primaryMovie } = props;
   return (
-    <Paper zDepth={1} style={style}>
-      <Title
-        primaryMovie={props.primaryMovie}
-        secondaryMovie={props.secondaryMovie}
-      />
-      <Graph
-        primaryMovie={props.primaryMovie}
-        secondaryMovie={props.secondaryMovie}
-      />
-      <MovieInfo
-        primaryMovie={props.primaryMovie}
-        secondaryMovie={props.secondaryMovie}
-      />
-    </Paper>
+    <div>
+      Movie detail component
+      <Title primaryMovie={primaryMovie} />
+      <Graph primaryMovie={primaryMovie} />
+      <MovieInfo primaryMovie={primaryMovie} />
+    </div>
   );
 }
 
 MovieDetail.propTypes = {
-  primaryMovie: PropTypes.shape({}).isRequired,
-  secondaryMovie: PropTypes.shape({}).isRequired,
+  primaryMovie: PropTypes.shape({}).isRequired
 };
 
-function mapStateToProps({ primaryMovie, secondaryMovie }) {
-  return { primaryMovie, secondaryMovie };
+function mapStateToProps({ primaryMovie }) {
+  return { primaryMovie };
 }
 
 export default connect(mapStateToProps)(MovieDetail);
