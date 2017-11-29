@@ -21,9 +21,8 @@ const translateToCurrency = (value) => {
   return `$${res}`;
 };
 
-function MovieInfo({ primaryMovie }) {
-  const primaryTitle = primaryMovie.title;
-  console.log(primaryMovie);
+const MovieInfo = ({ movie }) => {
+  const primaryTitle = movie.title;
   return (
     <div>
       <h1>{primaryTitle}</h1>
@@ -32,7 +31,7 @@ function MovieInfo({ primaryMovie }) {
 }
 
 MovieInfo.propTypes = {
-  primaryMovie: PropTypes.shape({
+  movie: PropTypes.shape({
     title: PropTypes.string,
     revenue: PropTypes.number,
     releaseDate: PropTypes.string,

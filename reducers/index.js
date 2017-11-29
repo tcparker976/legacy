@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import PrimaryMovieReducer from './primaryMovie';
-import SecondaryMovieReducer from './secondaryMovie';
-import GraphDataReducer from './graphData';
+import fetchMovie from './fetchMovie';
+import graphData from './graphData';
+import fetchMovies from './fetchMovies';
 
 const rootReducer = combineReducers({
-  primaryMovie: PrimaryMovieReducer,
-  secondaryMovie: SecondaryMovieReducer,
-  graphData: GraphDataReducer,
+  movie: fetchMovie,
+  graphData,
+  movies: fetchMovies
 });
 
 export default rootReducer;

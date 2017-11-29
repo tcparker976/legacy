@@ -16,7 +16,7 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    this.props.onMovieSearch(this.state.term, this.props.type);
+    this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
   }
 
@@ -35,8 +35,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  onMovieSearch: PropTypes.func.isRequired,
-  floatingLabelText: PropTypes.string.isRequired,
+  fetchMovies: PropTypes.func.isRequired
 };
 
 export default SearchBar;

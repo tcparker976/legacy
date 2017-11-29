@@ -4,17 +4,27 @@ import PropTypes from 'prop-types';
 
 const url = 'https://image.tmdb.org/t/p/w154';
 
-function MovieList({ movies, fetchMovie }) {
-  const movieList = movies.filter(movie => movie.poster_path).map(movie => (
-    <div key={movie.id} onClick={() => fetchMovie(movie.id)}>
-      <img src={url + movie.poster_path} alt={movie.title} />
-      <h2>{movie.title}</h2>
-    </div>
-  ));
+const MovieList = ({ movies, fetchMovie }) => {
+
+  const renderMovieList = () => {
+    if (movies) {
+      const movieList = movies.filter(movie => movie.poster_path).map(movie => (
+        <div key={movie.id} onClick={() => fetchMovie(movie.id)}>
+          <img src={url + movie.poster_path} alt={movie.title} />
+          <h2>{movie.title}</h2>
+        </div>
+      ));
+      return movieList;
+    } else {
+      return (
+        <div />
+      )
+    }
+  }
 
   return (
     <div className="movie-list-grid">
-      {movieList}
+      {renderMovieList()}
     </div>
   );
 }

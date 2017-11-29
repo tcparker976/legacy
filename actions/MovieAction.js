@@ -1,22 +1,20 @@
 import axios from 'axios';
 
-export const FETCH_MOVIE1 = 'FETCH_MOVIE1';
-export const FETCH_MOVIE2 = 'FETCH_MOVIE2';
+export const FETCH_MOVIE = 'FETCH_MOVIE';
+export const FETCH_MOVIES = 'FETCH_MOVIES';
 
-export function fetchMovie1(id) {
+export const fetchMovie = (id) => {
   const request = axios.get(`/movie/${id}`);
-
   return {
-    type: FETCH_MOVIE1,
+    type: FETCH_MOVIE,
     payload: request,
   };
 }
 
-export function fetchMovie2(id) {
-  const request = axios.get(`/movie/${id}`);
-
+export const fetchMovies = (query) => {
+  const request = axios.get(`/search/${query}`);
   return {
-    type: FETCH_MOVIE2,
-    payload: request,
-  };
+    type: FETCH_MOVIES,
+    payload: request
+  }
 }
