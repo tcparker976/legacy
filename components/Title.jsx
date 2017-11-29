@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Title(props) {
-  let { title } = props.primaryMovie;
+  let { title } = props.movie
   return (
     <div>
       <h1 id="title">{title}</h1>
@@ -11,7 +11,7 @@ function Title(props) {
 }
 
 Title.propTypes = {
-  primaryMovie: PropTypes.shape({
+  movie: PropTypes.shape({
     title: PropTypes.string,
   }).isRequired
 };

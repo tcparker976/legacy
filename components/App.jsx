@@ -1,13 +1,17 @@
 import React from 'react';
-import SearchBox from '../containers/SearchBox';
-import MovieDetail from '../containers/MovieDetail';
+import SearchBarContainer from '../containers/SearchBarContainer';
+import MovieListContainer from '../containers/MovieListContainer';
+import MovieDetailContainer from '../containers/MovieDetailContainer';
 
-export default function App() {
+const App = () => {
   return (
     <div>
-      <h1>Movie Stuff</h1>
-      <SearchBox />
-      <MovieDetail />
+      <h1>MarsKliff</h1>
+      <SearchBarContainer />
+      <MovieListContainer />
+      <MovieDetailContainer />
     </div>
   );
 }
+
+export default App; 
