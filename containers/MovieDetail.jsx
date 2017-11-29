@@ -20,12 +20,11 @@ function MovieDetail(props) {
 }
 
 MovieDetail.propTypes = {
-  primaryMovie: PropTypes.shape({}).isRequired,
-  secondaryMovie: PropTypes.shape({}).isRequired,
+  primaryMovie: PropTypes.shape({}).isRequired
 };
 
-function mapStateToProps({ primaryMovie, secondaryMovie }) {
-  return { primaryMovie, secondaryMovie };
+function mapStateToProps({ primaryMovie }) {
+  return { primaryMovie };
 }
 
 export default connect(mapStateToProps)(MovieDetail);
