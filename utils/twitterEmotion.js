@@ -1,5 +1,7 @@
 const axios = require('axios');
-const config = require('../config/config.js');
+if (!process.env.TWITTERAPI) {
+  const config = require('../config/config.js');
+}
 
 const twitterApiUrl = 'https://api.twitter.com/1.1/search/tweets.json';
 const twitterToken = process.env.TWITTERAPI || config.TWITTERAPI;

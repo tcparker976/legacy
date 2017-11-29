@@ -1,5 +1,7 @@
 const axios = require('axios');
-const config = require('../config/config.js');
+if (!process.env.TWITTERAPI) {
+  const config = require('../config/config.js');
+}
 
 /*
  * Fetch search results from TMDB by keyword query
