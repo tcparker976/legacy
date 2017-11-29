@@ -1,4 +1,5 @@
 const axios = require('axios');
+const config = require('../config/config.js');
 
 /*
  * Fetch search results from TMDB by keyword query
@@ -8,7 +9,7 @@ const axios = require('axios');
 exports.searchMoviesByName = query => (
   axios.get('http://api.themoviedb.org/3/search/movie', {
     params: {
-      api_key: process.env.TMDBAPI,
+      api_key: process.env.TMDBAPI || config.TMDBAPI,
       // 'language': 'en-US',
       query,
     },
@@ -25,7 +26,7 @@ exports.searchMoviesByName = query => (
 exports.fetchMovieById = id => (
   axios.get(`http://api.themoviedb.org/3/movie/${id}`, {
     params: {
-      api_key: process.env.TMDBAPI,
+      api_key: process.env.TMDBAPI || config.TMDBAPI,
       // 'language': 'en-US',
     },
   }).then(res => (
@@ -41,7 +42,7 @@ exports.fetchMovieById = id => (
 exports.fetchImageById = id => (
   axios.get(`http://api.themoviedb.org/3/movie/${id}/images`, {
     params: {
-      api_key: process.env.TMDBAPI,
+      api_key: process.env.TMDBAPI || config.TMDBAPI,
       // 'language': 'en-US',
     },
   }).then((res) => {
