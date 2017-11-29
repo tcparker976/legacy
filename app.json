@@ -3,6 +3,18 @@
   "scripts": {
   },
   "env": {
+    "MONGODB_URI": {
+      "required": true
+    },
+    "TMDBAPI": {
+      "required": true
+    },
+    "TWITTERAPI": {
+      "required": true
+    },
+    "WATSONAPI": {
+      "required": true
+    }
   },
   "formation": {
   },

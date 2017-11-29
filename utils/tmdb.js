@@ -1,5 +1,8 @@
 const axios = require('axios');
-const config = require('../config/config.js');
+var config = require('../config/config.example.js');
+if (!process.env.TMDBAPI) {
+  config = require('../config/config.js');
+}
 
 /*
  * Fetch search results from TMDB by keyword query
