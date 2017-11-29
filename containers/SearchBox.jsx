@@ -35,6 +35,7 @@ class SearchBox extends Component {
   onMovieSearch(query, type) {
     axios.get(`/search/${query}`)
       .then((response) => {
+        console.log(response);
         if (type === 'primary') this.setState({ primaryMovieList: response.data.results });
         else if (type === 'secondary') this.setState({ secondaryMovieList: response.data.results });
       })
