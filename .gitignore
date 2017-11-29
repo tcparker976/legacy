@@ -30,4 +30,4 @@ bower_components/
 
 .env
 public/bundle.js
-config.js
+config/config.js
