@@ -57,7 +57,7 @@ npm install
 ### Setting up Development Server
 
 ```sh
-webpack && API_KEY=[YOUR TMDB API KEY] TWITTERAPI=[YOUR TWITTER API KEY] WATSONAPI=[YOUR WATSON API KEY] node app.js
+webpack && TMDBAPI=[YOUR TMDB API KEY] TWITTERAPI=[YOUR TWITTER API KEY] WATSONAPI=[YOUR WATSON API KEY] node app.js
 ```
 
 ### Roadmap

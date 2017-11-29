@@ -8,7 +8,7 @@ const axios = require('axios');
 exports.searchMoviesByName = query => (
   axios.get('http://api.themoviedb.org/3/search/movie', {
     params: {
-      api_key: process.env.API_KEY,
+      api_key: process.env.TMDBAPI,
       // 'language': 'en-US',
       query,
     },
@@ -25,7 +25,7 @@ exports.searchMoviesByName = query => (
 exports.fetchMovieById = id => (
   axios.get(`http://api.themoviedb.org/3/movie/${id}`, {
     params: {
-      api_key: process.env.API_KEY,
+      api_key: process.env.TMDBAPI,
       // 'language': 'en-US',
     },
   }).then(res => (
@@ -41,7 +41,7 @@ exports.fetchMovieById = id => (
 exports.fetchImageById = id => (
   axios.get(`http://api.themoviedb.org/3/movie/${id}/images`, {
     params: {
-      api_key: process.env.API_KEY,
+      api_key: process.env.TMDBAPI,
       // 'language': 'en-US',
     },
   }).then((res) => {
