@@ -1,5 +1,6 @@
 module.exports = {
   TMDBAPI: '',
   TWITTERAPI: '',
-  WATSONAPI: ''
+  WATSONAPI: '',
+  OMDBAPI: ''
 };

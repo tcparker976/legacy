@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 const url = 'https://image.tmdb.org/t/p/w154';
@@ -10,8 +11,10 @@ const MovieList = ({ movies, fetchMovie }) => {
     if (movies) {
       const movieList = movies.filter(movie => movie.poster_path).map(movie => (
         <div key={movie.id} onClick={() => fetchMovie(movie.id)}>
-          <img src={url + movie.poster_path} alt={movie.title} />
-          <h2>{movie.title}</h2>
+          <Link to={`/moviedetails/${movie.id}`}>
+            <img src={url + movie.poster_path} alt={movie.title} />
+            <h2>{movie.title}</h2> 
+          </Link>  
         </div>
       ));
       return movieList;

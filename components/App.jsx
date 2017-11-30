@@ -6,7 +6,7 @@ import MovieDetailContainer from '../containers/MovieDetailContainer';
 const App = () => {
   return (
     <div>
-      <h1>MarsKliff</h1>
+      <h1>CliffOnMars</h1>
       <SearchBarContainer />
       <MovieListContainer />
       <MovieDetailContainer />
