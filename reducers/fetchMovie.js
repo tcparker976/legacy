@@ -1,11 +1,14 @@
-import { FETCH_MOVIE, CLEAR_MOVIE } from '../actions/MovieAction';
+import { FETCH_MOVIE, FETCH_RATINGS, CLEAR_MOVIE } from '../actions/MovieAction';
 
 export default function (state = null, action) {
   switch (action.type) {
-    case FETCH_MOVIE:
-      return action.payload.data;
+    case FETCH_RATINGS:
+      return {
+        ...state,
+        ...action.payload.data
+      }
     case CLEAR_MOVIE:
-      return null
+      return null;
     default:
       return state;
   }

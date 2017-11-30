@@ -5,12 +5,11 @@ import Title from './Title';
 import GraphContainer from '../containers/GraphContainer.jsx';
 import MovieInfo from './MovieInfo';
 
-const url = 'https://image.tmdb.org/t/p/w154';
-
 export default class MovieDetail extends Component {
 
   componentDidMount() {
-    this.props.fetchMovie(this.props.match.params.movieid);
+    const { imdbId } = this.props.match.params;
+    this.props.fetchRatings(imdbId);
   }
 
   componentWillUnmount() {
@@ -30,10 +29,10 @@ export default class MovieDetail extends Component {
     return (
       <div className="movie-grid">
         <div className="poster">
-          <img src={`${url}/${match.params.movieposter}.jpg`} alt="" />
+          <img src={movie.Poster} alt="" />
         </div>
         <div className="ratings">
-          <h3>{movie.title}</h3>
+          <h3>{movie.Title}</h3>
           ratings box 
         </div>
       </div>
