@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+=======
+import React from 'react';
+>>>>>>> (feat) added a NavBar component, upsdated README
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
