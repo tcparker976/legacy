@@ -1,6 +1,6 @@
 const axios = require('axios');
 var config = require('../config/config.example.js');
-if (!process.env.OMDBAPI) {
+if (!process.env.TMDBAPI) {
   config = require('../config/config.js');
 }
 const omdbToken = process.env.OMDBAPI || config.OMDBAPI
