@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <App>
         <Route exact path="/" component={Home} />
-        <Route path="/moviedetails/:movieid/:movieposter" component={MovieDetailContainer} />
+        <Route path="/moviedetails/:imdbId" component={MovieDetailContainer} />
       </App>
     </Router>
   </Provider>,

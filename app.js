@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
-const tmdb = require('./utils/tmdb');
+const omdb = require('./utils/omdb');
 const { movieTrend } = require('./utils/trendFetch');
 const { avgTweetEmotion } = require('./utils/twitterEmotion');
-const Movie = require('./db/Movie.js');
+const { fetchRatings } = require('./utils/ratingFetch');
+const Movie = require('./db/Movie');
 
 const app = express();
 
@@ -17,10 +18,31 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search/:movie', (req, res) => {
-  tmdb.searchMoviesByName(req.params.movie).then((data) => {
-    res.send(data);
+  omdb.searchMoviesByName(req.params.movie).then((data) => {
+    return res.send(data);
   });
 });
+
+
+app.get('/ratings/:id', async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+    const results = await fetchRatings(id);
+    res.send(results.data); 
+  } catch (err) {
+    res.status(400).send(err);
+  }
+  
+})
+
+app.get('/*', (req, res) => {
+  res.sendFile(public + '/index.html');
+});
+
+module.exports = app.listen(port, () => console.log(`Listening on port ${port}`));
+
+/* ========== OLD API CALL - saving for reference in case we want trending again ===== 
 
 app.get('/movie/:tmdbId', async (req, res) => {
   const { tmdbId } = req.params;
@@ -73,10 +95,7 @@ app.get('/movie/:tmdbId', async (req, res) => {
   } catch (err) {
     return res.status(400).send(err);
   }
+
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(public + '/index.html');
-});
-
-module.exports = app.listen(port, () => console.log(`Listening on port ${port}`));
+*/ 
