@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const tmdb = require('./utils/tmdb');
 const { movieTrend } = require('./utils/trendFetch');
 const { avgTweetEmotion } = require('./utils/twitterEmotion');
@@ -7,6 +8,7 @@ const Movie = require('./db/Movie.js');
 const app = express();
 
 app.use(express.static('public'));
+const public = path.join(__dirname, '/public');
 
 const port = process.env.PORT || 7331;
 
@@ -71,6 +73,10 @@ app.get('/movie/:tmdbId', async (req, res) => {
   } catch (err) {
     return res.status(400).send(err);
   }
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(public + '/index.html');
 });
 
 module.exports = app.listen(port, () => console.log(`Listening on port ${port}`));
