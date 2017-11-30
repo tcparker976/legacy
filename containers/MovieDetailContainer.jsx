@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchMovie } from '../actions/MovieAction.js';
+import { fetchMovie, clearMovie } from '../actions/MovieAction.js';
 import MovieDetail from '../components/MovieDetail.jsx';
 
 const mapStateToProps = (state) => {
@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  fetchMovie
+  fetchMovie,
+  clearMovie
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

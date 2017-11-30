@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_MOVIE = 'FETCH_MOVIE';
+export const CLEAR_MOVIE = 'CLEAR_MOVIE';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 
 export const fetchMovie = (id) => {
@@ -17,5 +18,11 @@ export const fetchMovies = (query) => {
   return {
     type: FETCH_MOVIES,
     payload: request
+  }
+}
+
+export const clearMovie = () => {
+  return {
+    type: CLEAR_MOVIE
   }
 }

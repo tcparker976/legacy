@@ -1,13 +1,12 @@
 import React from 'react';
-import SearchBarContainer from '../containers/SearchBarContainer';
+import NavBar from './NavBar.jsx';
 import MovieListContainer from '../containers/MovieListContainer';
 
-const App = () => {
+const App = (props) => {
   return (
     <div>
-      <h1>CliffOnMars</h1>
-      <SearchBarContainer />
-      <MovieListContainer />
+      {props.children}
+      {console.log('PROPS.CHILDREN: ', props.children)}
     </div>
   );
 }
