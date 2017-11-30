@@ -14,8 +14,8 @@ module.exports = {
         exclude: /node_modules/,
         query: {
           presets: ['env', 'react', 'stage-1'],
-        },
-      },
+        }
+      }
     ],
   },
   resolve: {

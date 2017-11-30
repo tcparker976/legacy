@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -10,12 +11,12 @@ const MovieList = ({ movies, fetchMovie }) => {
   const renderMovieList = () => {
     if (movies) {
       const movieList = movies.filter(movie => movie.poster_path).map(movie => (
-        <div key={movie.id} onClick={() => fetchMovie(movie.id)}>
-          <Link to={`/moviedetails/${movie.id}`}>
+        <Link to={`/moviedetails/${movie.id}/${movie.poster_path.substr(1, movie.poster_path.length - 5)}`}>
+          <div key={movie.id}>
             <img src={url + movie.poster_path} alt={movie.title} />
-            <h2>{movie.title}</h2> 
-          </Link>  
-        </div>
+            <h2>{movie.title}</h2>
+          </div>
+        </Link>
       ));
       return movieList;
     } else {

@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBarContainer from '../containers/SearchBarContainer';
 import MovieListContainer from '../containers/MovieListContainer';
-import MovieDetailContainer from '../containers/MovieDetailContainer';
 
 const App = () => {
   return (
@@ -9,7 +8,6 @@ const App = () => {
       <h1>CliffOnMars</h1>
       <SearchBarContainer />
       <MovieListContainer />
-      <MovieDetailContainer />
     </div>
   );
 }
