@@ -13,6 +13,10 @@ export default class MovieDetail extends Component {
     this.props.fetchMovie(this.props.match.params.movieid);
   }
 
+  componentWillUnmount() {
+    this.props.clearMovie(); 
+  }
+
   render() {
     const { movie, match } = this.props;
     console.log(movie);
