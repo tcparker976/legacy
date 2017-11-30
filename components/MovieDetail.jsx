@@ -5,17 +5,17 @@ import Title from './Title';
 import GraphContainer from '../containers/GraphContainer.jsx';
 import MovieInfo from './MovieInfo';
 
+const url = 'https://image.tmdb.org/t/p/w154';
+
 export default class MovieDetail extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchMovie(this.props.match.params.movieid);
   }
 
   render() {
-    const { movie } = this.props;
+    const { movie, match } = this.props;
+    console.log(movie);
     if (!movie) {
       return (
         <div>
@@ -24,10 +24,14 @@ export default class MovieDetail extends Component {
       )
     }
     return (
-      <div>
-        <Title movie={movie} />
-        <GraphContainer />
-        <MovieInfo movie={movie} />
+      <div className="movie-grid">
+        <div className="poster">
+          <img src={`${url}/${match.params.movieposter}.jpg`} alt="" />
+        </div>
+        <div className="ratings">
+          <h3>{movie.title}</h3>
+          ratings box 
+        </div>
       </div>
     );
   }

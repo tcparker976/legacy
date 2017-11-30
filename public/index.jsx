@@ -15,7 +15,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={App} />
-        <Route path="/moviedetails/:movieid" component={MovieDetailContainer} />
+        <Route path="/moviedetails/:movieid/:movieposter" component={MovieDetailContainer} />
       </div>
     </Router>
   </Provider>,

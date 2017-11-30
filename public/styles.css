@@ -16,3 +16,13 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 20px;
 }
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  min-height: 500px;
+}
+
+.ratings {
+  border: 1px solid black;
+}
