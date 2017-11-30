@@ -20,6 +20,7 @@ export default class MovieDetail extends Component {
 
   render() {
     const { movie, sentiment, trends } = this.props;
+    console.log('MOVIE DATA: ', movie);
     if (!movie) {
       return (
         <div>
@@ -30,11 +31,17 @@ export default class MovieDetail extends Component {
     return (
       <div className="movie-grid">
         <div className="poster">
-          <img src={movie.Poster} alt="" />
+          <h3>{movie.title}</h3>
+          <img src={`${url}/${match.params.movieposter}.jpg`} alt="" />
         </div>
         <div className="ratings">
-          <h3>{movie.Title}</h3>
-          ratings box 
+            <h3>Ratings</h3>
+        </div>
+        <div className='plot'>
+           This is the plot. Lorem ipsum....
+        </div>
+        <div className='producedBy'>
+          {movie.productionCompanies}
         </div>
       </div>
     );

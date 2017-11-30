@@ -19,10 +19,25 @@ body {
 
 .movie-grid {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  min-height: 500px;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 300px;
+  margin-right: 70px;
+  margin-left: 70px;
+}
+
+/* ==================================== 
+        Movie Detail Styles      
+===================================== */
+
+.poster {
+  padding-top: 30px;
+  grid-column: 2;
 }
 
 .ratings {
+  margin-top: 30px;
+  grid-column: 3;
   border: 1px solid black;
-}
+  padding-right: 200px;
+  width: 150px;
+}    
