@@ -2,7 +2,7 @@ const express = require('express');
 const tmdb = require('./utils/tmdb');
 const { movieTrend } = require('./utils/trendFetch');
 const { avgTweetEmotion } = require('./utils/twitterEmotion');
-const Movie = require('./db/Movie');
+const Movie = require('./db/Movie.js');
 
 const app = express();
 
