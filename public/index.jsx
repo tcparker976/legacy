@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import App from '../components/App';
-import Movie from '../components/Movie';
+import MovieDetailContainer from '../containers/MovieDetailContainer';
 import reducers from '../reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -15,7 +15,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={App} />
-        <Route path="/movie" component={Movie} />
+        <Route path="/moviedetails/:movieid/:movieposter" component={MovieDetailContainer} />
       </div>
     </Router>
   </Provider>,

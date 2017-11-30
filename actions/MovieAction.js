@@ -7,7 +7,7 @@ export const fetchMovie = (id) => {
   const request = axios.get(`/movie/${id}`);
   return {
     type: FETCH_MOVIE,
-    payload: request,
+    payload: request
   };
 }
 
