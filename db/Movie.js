@@ -36,13 +36,12 @@ var insertMovie = async (tmdbId) => {
   try {
     const movie = await Movie.findOneAndUpdate({ tmdbId }, {});
     if (movie) {
+      // console.log('Updating timestamp only');
       return;
     }
-
     var data = [await tmdb.fetchMovieById(tmdbId), await tmdb.fetchImageById(tmdbId)];
     var movieData = data[0];
     var images = data[1];
-
     var results = { tmdbId };
     results.title = movieData.title;
     results.productionCompanies = movieData.production_companies.map(company => company.name);
@@ -51,7 +50,6 @@ var insertMovie = async (tmdbId) => {
     results.revenue = movieData.revenue;
     results.releaseDate = movieData.release_date;
     results.images = images;
-
     var smData = [
       await movieTrend(results.title, results.releaseDate),
       await avgTweetEmotion(results.title),
@@ -72,6 +70,7 @@ var insertMovie = async (tmdbId) => {
 
     var movieDoc = new Movie(results);
     movieDoc.save();
+    // console.log('Adding Movie to Db');
   } catch (err) {
     console.log(err);
   }
