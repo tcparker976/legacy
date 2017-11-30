@@ -4,9 +4,8 @@ import { fetchMovie } from '../actions/MovieAction';
 import MovieList from '../components/MovieList.jsx';
 
 
-const mapStateToProps = (state) => {
-  console.log(state)
-  return { movies: state.movies }
+const mapStateToProps = ({ movies }) => {
+  return { movies }
 }
 
 const mapDispatchToProps = {

@@ -9,6 +9,9 @@
     "TMDBAPI": {
       "required": true
     },
+    "OMDBAPI": {
+      "required": true
+    },
     "TWITTERAPI": {
       "required": true
     },
