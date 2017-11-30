@@ -19,13 +19,12 @@ const movieSchema = new mongoose.Schema({
   }],
   budget: Number,
   revenue: Number,
-  estimatedProfit: Number,
   releaseDate: Date,
   trendData: [{
     formattedAxisTime: String,
     value: Number,
   }],
-});
+}, {timestamps: true});
 
 const Movie = mongoose.model('Movie', movieSchema);
 
