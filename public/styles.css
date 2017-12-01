@@ -40,4 +40,50 @@ body {
   border: 1px solid black;
   padding-right: 200px;
   width: 150px;
-}    
+}
+
+/* =====================================
+         Navigation Styles
+====================================== */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #131313;
+}
+
+li {
+  float: left;
+  border-right:1px solid #363535;
+}
+
+li a {
+  display: block;
+  color: #E57850;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+li:last-child {
+  float: right;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  color: #CE4223;
+  text-decoration: none;
+}
+
+.logo {
+  height: auto;
+  width: 60px;
+  display: inline-block;
+}
+
+
+
+
+

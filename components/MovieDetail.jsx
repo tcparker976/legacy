@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Title from './Title';
 import GraphContainer from '../containers/GraphContainer.jsx';
 import MovieInfo from './MovieInfo';
+import NavBar from './NavBar';
 
 export default class MovieDetail extends Component {
 
@@ -24,7 +25,8 @@ export default class MovieDetail extends Component {
     if (!movie) {
       return (
         <div>
-          Loading...
+          <h1>Loading...</h1>
+          <img src="spinner.gif"></img>
         </div>
       )
     }
@@ -32,9 +34,10 @@ export default class MovieDetail extends Component {
       <div className="movie-grid">
         <div className="poster">
           <h3>{movie.title}</h3>
-          <img src={`${url}/${match.params.movieposter}.jpg`} alt="" />
+          <img src={movie.Poster} alt="" />
         </div>
         <div className="ratings">
+            <h3>{movie.Title}</h3>
             <h3>Ratings</h3>
         </div>
         <div className='plot'>

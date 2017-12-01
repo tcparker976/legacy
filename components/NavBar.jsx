@@ -9,13 +9,12 @@ class NavBar extends Component {
 
  render() {
    return (<div>
-     <span>
-       <h1>Logo Goes Here</h1>
-     </span>
      <nav>
-         <Link to="/"><button>Home</button></Link>
-         <span><SearchBarContainer /></span>
-        
+        <ul>
+          <li><Link to="/"><img className="logo" src="mars-logo.png"></img></Link></li>
+          <li><Link to="/">Home</Link></li>
+          <li><SearchBarContainer /></li>
+        </ul> 
       </nav> 
    </div>)
  }
