@@ -16,8 +16,8 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    this.props.fetchMovies(this.state.term.replace(' ', '+'));
-    this.setState({ term: '' });
+    const query = this.state.term.replace(' ', '+');
+    this.props.history.replace(`/movie-list/${query}`);
   }
 
   render() {

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const MovieList = ({ movies, fetchMovie }) => {
+export default class MovieList extends Component {
 
-  const renderMovieList = () => {
+  componentDidMount() {
+    const { query } = this.props.match.params;
+    this.props.fetchMovies(query);
+  }
+
+  renderMovieList() {
+    const { movies, fetchMovie, fetchMovies } = this.props
     if (movies) {
       const movieList = movies.filter(mov => mov.Poster !== "N/A").map(movie => {
       const title = movie.Title.replace(' ', '+');
@@ -26,11 +32,14 @@ const MovieList = ({ movies, fetchMovie }) => {
     }
   }
 
-  return (
-    <div className="movie-list-grid">
-      {renderMovieList()}
-    </div>
-  );
+  render() {
+    return (
+      <div className="movie-list-grid">
+        {this.renderMovieList()}
+      </div>
+    );
+  }
+
 }
 
 MovieList.propTypes = {
@@ -39,6 +48,6 @@ MovieList.propTypes = {
     title: PropTypes.string,
   })),
   fetchMovie: PropTypes.func.isRequired,
+  fetchMovies: PropTypes.func.isRequired,
 };
 
-export default MovieList;

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchMovies } from '../actions/MovieAction';
+import { withRouter } from 'react-router-dom';
 
 import SearchBar from '../components/SearchBar';
 
@@ -11,4 +12,4 @@ const mapDispatchToProps = {
   fetchMovies
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));

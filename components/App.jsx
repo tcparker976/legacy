@@ -1,6 +1,4 @@
 import React from 'react';
-import SearchBarContainer from '../containers/SearchBarContainer';
-import MovieListContainer from '../containers/MovieListContainer';
 
 const App = (props) => {
   return (
