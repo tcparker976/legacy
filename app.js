@@ -5,7 +5,6 @@ const { movieTrend } = require('./utils/trendFetch');
 const { avgTweetEmotion } = require('./utils/twitterEmotion');
 const { fetchRatings } = require('./utils/ratingFetch');
 const Movie = require('./db/Movie');
-
 const app = express();
 
 app.use(express.static('public'));
