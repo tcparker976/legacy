@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const MovieList = ({ movies, fetchMovie }) => {
 
@@ -10,7 +10,7 @@ const MovieList = ({ movies, fetchMovie }) => {
       const title = movie.Title.replace(' ', '+');
       const year = movie.Year;
         return (
-          <Link to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
+          <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
             <div>
               <img src={movie.Poster} alt={movie.title} />
               <h2>{movie.Title}</h2>
