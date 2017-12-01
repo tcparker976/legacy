@@ -5,9 +5,13 @@ const App = (props) => {
   console.log('PROPS CHILDRENITOS')
   console.log(props.children);
   return (
-    <div>
-      <NavBar />
-      {props.children}
+    <div className="grid-container">
+      <div className="nav-bar-container">
+        <NavBar />
+      </div>
+      <div className="body-container">
+        {props.children}
+      </div>
     </div>
   );
 }

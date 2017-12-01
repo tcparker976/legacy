@@ -26,7 +26,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
+      <form onSubmit={this.onFormSubmit} className="Albrey-Junior">
         <input
           type="text"
           placeholder="Insert Movie Name"

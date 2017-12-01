@@ -1,6 +1,5 @@
 /* =============================
       Overall Styles
-============================== */      
 
 body {
   text-align: center;
@@ -11,17 +10,33 @@ body {
   margin: 0 auto;
 }
 
+*/
 
+* {
+  margin: 0;
+  padding: 0;
+}
 
-.input-group {
+.grid-container {
+  display: grid;
+  grid-template-columns: 100%, repeat(5, 1fr);
+  grid-template-rows: 100px 1fr;
+}
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #131313;
+}
+
+/* .input-group {
   margin: 25px;
 }
 
 .recharts-wrapper {
   margin: 0 auto;
-}
+} */
 
-.movie-list-grid {
+/* .movie-list-grid {
   margin: 2em;
   display: grid; 
   grid-template-columns: repeat(6, 1fr);
@@ -40,57 +55,76 @@ body {
 /* ==================================== 
         Movie Detail Styles      
 ===================================== */
-
+/* 
 .poster {
   padding-top: 30px;
   grid-column: 2;
-}
-
+} */
+/* 
 .ratings {
   margin-top: 30px;
   grid-column: 3;
   border: 1px solid black;
   padding-right: 200px;
   width: 150px;
-}
+} */
 
 /* =====================================
          Navigation Styles
 ====================================== */
 
-ul {
+nav {
+  display: flex;
+  justify-content: space-between;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #212121;
+  /* width: 100%;
+  background-color: #363535; */
 }
 
-li {
-  float: left;
-  border-right:1px solid #363535;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
 }
 
-li a {
-  display: block;
-  color: #E57850;
-  padding: 14px 16px;
-  text-align: center;
-  text-decoration: none;
+.logo-container > div {
+  padding: 10px;
 }
 
-li:last-child {
-  float: right;
+.logo-container > div:last-child {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
+.Albrey {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 35px;
+}
+
+nav div a:hover {
   color: #CE4223;
   text-decoration: none;
 }
 
 .logo {
+  flex: 1;
   height: auto;
   width: 60px;
   display: inline-block;
 }
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+

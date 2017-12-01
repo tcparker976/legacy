@@ -8,13 +8,24 @@ class NavBar extends Component {
   }
 
  render() {
-   return (<div>
+   return (
+   <div>
      <nav>
-        <ul>
-          <li><Link to="/"><img className="logo" src="/mars-logo.png"></img></Link></li>
-          <li><Link to="/">Home</Link></li>
-          <li><SearchBarContainer /></li>
-        </ul> 
+        <div className="logo-container">
+            <div className="Kristina">
+              <Link to="/">
+                <img className="logo" src="/mars-logo.png"></img>
+              </Link>
+            </div>
+            <div>
+              <h1 id="site-name">
+                MarsKlif
+              </h1>
+            </div>
+        </div>
+        <div className="Albrey">
+          <SearchBarContainer />
+        </div>
       </nav> 
    </div>)
  }
