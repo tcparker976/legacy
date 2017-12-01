@@ -2,5 +2,6 @@ module.exports = {
   TMDBAPI: '',
   TWITTERAPI: '',
   WATSONAPI: '',
-  OMDBAPI: ''
+  OMDBAPI: '',
+  MONGODB_URI: ''
 };
