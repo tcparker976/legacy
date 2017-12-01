@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const MovieList = ({ movies, fetchMovie }) => {
 
   const renderMovieList = () => {
     if (movies) {
+<<<<<<< HEAD
       const movieList = movies.filter(mov => mov.Poster !== "N/A").map(movie => {
       const title = movie.Title.replace(' ', '+');
       const year = movie.Year;
@@ -18,6 +20,16 @@ const MovieList = ({ movies, fetchMovie }) => {
           </Link>
         );
       });
+=======
+      const movieList = movies.filter(movie => movie.poster_path).map(movie => (
+        <div key={movie.id} onClick={() => fetchMovie(movie.id)}>
+          <Link to={`/moviedetails/${movie.id}`}>
+            <img src={url + movie.poster_path} alt={movie.title} />
+            <h2>{movie.title}</h2> 
+          </Link>  
+        </div>
+      ));
+>>>>>>> testing new codebase
       return movieList;
     } else {
       return (
