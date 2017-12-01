@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import Title from './Title';
 import GraphContainer from '../containers/GraphContainer.jsx';
 import MovieInfo from './MovieInfo';
+import Ratings from './Ratings';
 
 export default class MovieDetail extends Component {
 
@@ -31,12 +30,7 @@ export default class MovieDetail extends Component {
     return (
       <div className="movie-grid">
         <div className="poster">
-          <h3>{movie.title}</h3>
           <img src={movie.Poster} alt="" />
-        </div>
-        <div className="ratings">
-            <h3>{movie.Title}</h3>
-            <h3>Ratings</h3>
         </div>
         <div className='plot'>
            This is the plot. Lorem ipsum....
