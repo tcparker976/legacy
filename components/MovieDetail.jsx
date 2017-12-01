@@ -8,8 +8,10 @@ import MovieInfo from './MovieInfo';
 export default class MovieDetail extends Component {
 
   componentDidMount() {
-    const { imdbId } = this.props.match.params;
+    const { imdbId, title } = this.props.match.params;
     this.props.fetchRatings(imdbId);
+    this.props.fetchTrends(title);
+    this.props.fetchSentiment(title);
   }
 
   componentWillUnmount() {
@@ -17,8 +19,7 @@ export default class MovieDetail extends Component {
   }
 
   render() {
-    const { movie, match } = this.props;
-    console.log(movie);
+    const { movie, sentiment, trends } = this.props;
     if (!movie) {
       return (
         <div>

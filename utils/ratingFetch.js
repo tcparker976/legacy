@@ -8,7 +8,7 @@ const omdbToken = process.env.OMDBAPI || config.OMDBAPI;
 
 const fetchRatings = (id) => {
   return axios.get(`http://www.omdbapi.com/?apikey=${omdbToken}&i=${id}`)
-}
+} 
 
 
 module.exports = {
