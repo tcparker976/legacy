@@ -1,6 +1,15 @@
+/* =============================
+      Overall Styles
+============================== */      
+
 body {
   text-align: center;
+  background-image: linear-gradient(#131313 80%, #CE4223);
+  background-attachment: fixed; 
+  color: #EAEAEA;
 }
+
+
 
 .input-group {
   margin: 25px;
@@ -23,6 +32,7 @@ body {
   min-height: 300px;
   margin-right: 70px;
   margin-left: 70px;
+  color: #EAEAEA;
 }
 
 /* ==================================== 
@@ -51,7 +61,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #131313;
+  background-color: #212121;
 }
 
 li {

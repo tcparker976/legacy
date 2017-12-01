@@ -3,7 +3,7 @@ import NavBar from './NavBar.jsx';
 
 const App = (props) => {
   return (
-    <div>
+    <div className="AppContainer">
       <NavBar />
       {props.children}
     </div>

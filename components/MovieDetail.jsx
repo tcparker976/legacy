@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Title from './Title';
 import GraphContainer from '../containers/GraphContainer.jsx';
 import MovieInfo from './MovieInfo';
 
