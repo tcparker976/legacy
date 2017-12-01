@@ -5,9 +5,18 @@ if (!process.env.TMDBAPI) {
   config = require('../config/config.js');
 }
 const omdbToken = process.env.OMDBAPI || config.OMDBAPI;
+
 var json = require('./movieList.json');
 
-console.log(`Alert!\nInitializing ${json.length} movies`);
+var lastMovie = json[json.length];
+
+var isComplete = (movieObj) => {
+  if (movieObj === lastMovie) {
+    console.log('\x1b[0m', '////////////////////////////////');
+    console.log('Initialization complete!');
+    process.exit();
+  }
+}
 
 const movieDownload = async (movieObj) => {
   if (!movieObj) {
@@ -17,17 +26,24 @@ const movieDownload = async (movieObj) => {
     try {
       const movie = await Movie.findOneAndUpdate({ Title: movieObj.title }, {});
       if (movie) {
-        console.log(`${movieObj.title} - Already in db`);
+        console.log('\x1b[32m', `In Db - ${movieObj.title}`);
+        isComplete(movieObj);
       } else {
         setTimeout(async () => {
-          console.log(`${movieObj.title} - Not in db yet`)
           var data = await axios.get(`http://www.omdbapi.com/?apikey=${omdbToken}&t=${movieObj.title}`);
           if (data.data.Response !== 'False') {
             var movieOMDB = new Movie(data.data);
-            movieOMDB.save();
-            console.log('Added new movie:', data.data.Title);
+            movieOMDB.save((err, res) => {
+              if (err) {
+                console.log(err);
+              } else {
+                isComplete(movieObj);
+              }
+            });
+            console.log('\x1b[34m', 'Added -', data.data.Title);
           } else {
-            console.log(`${movieObj.title} - Skipped`);
+            console.log('\x1b[31m', `Skip  - ${movieObj.title}`);
+            isComplete(movieObj);
           }
         }, 100);
       }
@@ -37,23 +53,18 @@ const movieDownload = async (movieObj) => {
 }
 
 const omdbMassiveInitialize = function(starterKey) {
+  console.log('////////////////////////////////');
+  console.log('starterKey Accepted - Initializing')
+  console.log('////////////////////////////////');
   if (starterKey === 'bingoBongo') {
-    for (var i = 0; i < 5; i++) {
-      // console.log(json[i]);
+    for (var i = 0; i < json.length; i++) {
       movieDownload(json[i])
-      // console.log();
     }
-
-    // json.forEach(movieObj) {
-    //   movieDownload(movieObj);
-    // }
-    console.log('////////////////////////////////')
-    console.log('Initialization complete!')
   } else {
     console.log('Invalid starterKey');
-    // return false;
+    process.exit()
   }
-  // process.exit()
 }
 
-omdbMassiveInitialize('bingoBongo')
+console.log(`Alert!\nInitializing ${json.length} movies`);
+omdbMassiveInitialize('bingoBongo');
