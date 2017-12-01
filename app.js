@@ -71,7 +71,7 @@ app.get('/movie/:tmdbId', async (req, res) => {
   const { tmdbId } = req.params;
 
   try {
-    const movie = await Movie.findOne({ tmdbId });
+    const movie = await Movie.findOneAndUpdate({ tmdbId }, {});
     if (movie) {
       const emotion = await avgTweetEmotion(movie.title);
       const results = movie.toObject();
@@ -89,7 +89,6 @@ app.get('/movie/:tmdbId', async (req, res) => {
     results.genres = movieData.genres.map(genre => genre.name);
     results.budget = movieData.budget;
     results.revenue = movieData.revenue;
-    // resutlts.estimatedProfit =
     results.releaseDate = movieData.release_date;
     results.images = images;
 
