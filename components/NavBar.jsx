@@ -13,9 +13,7 @@ class NavBar extends Component {
      <nav>
         <div className="logo-container">
             <div className="Kristina">
-              <Link to="/">
-                <img className="logo" src="/mars-logo.png"></img>
-              </Link>
+              <Link to="/"><img className="logo" src="/mars-logo.png"></img></Link>
             </div>
             <div>
               <h1 id="site-name">

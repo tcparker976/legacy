@@ -28,8 +28,9 @@ class SearchBar extends Component {
     return (
       <form onSubmit={this.onFormSubmit} className="Albrey-Junior">
         <input
+          className="search-bar-input"
           type="text"
-          placeholder="Insert Movie Name"
+          placeholder="Insert Movie Name . . ."
           value={this.state.term}
           onChange={this.onInputChange}
         />

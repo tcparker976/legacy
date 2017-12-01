@@ -20,7 +20,17 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: 100%, repeat(5, 1fr);
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 80px 1fr;
+}
+
+.movie-list-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr, 1fr;
+  grid-gap: 10px;
+  padding-top: 25px; 
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 body {
@@ -77,12 +87,15 @@ nav {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  /* margin: 0;
+  padding: 0; */
+  /* overflow: hidden; */
   background-color: #212121;
   /* width: 100%;
   background-color: #363535; */
+  padding-top: 5px;
+  padding-bottom: 5px; 
+  background-color: #363535;
 }
 
 .logo-container {
@@ -106,18 +119,13 @@ nav {
   display: flex; 
   flex-direction: column;
   justify-content: center;
-  padding-right: 35px;
-}
-
-nav div a:hover {
-  color: #CE4223;
-  text-decoration: none;
+  padding-right: 100px;
 }
 
 .logo {
   flex: 1;
   height: auto;
-  width: 60px;
+  width: 50px;
   display: inline-block;
 }
 
@@ -126,5 +134,40 @@ nav div a:hover {
   flex-direction: column;
   justify-content: center;
 }
+
+.search-bar-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 6px 100px 6px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

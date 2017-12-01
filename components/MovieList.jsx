@@ -16,18 +16,21 @@ export default class MovieList extends Component {
   renderMovieList() {
     const { movies, fetchMovie, fetchMovies } = this.props
     if (movies) {
-      const movieList = movies.filter(mov => mov.Poster !== "N/A").map(movie => {
-      const title = movie.Title.replace(/\s/g, '+');
-      const year = movie.Year;
-        return (
-          <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
-            <div>
-              <img src={movie.Poster} alt={movie.title} />
-              <h2>{movie.Title}</h2>
-            </div>
-          </Link>
-        );
-      });
+      const movieList = movies
+        .filter(mov => mov.Poster !== "N/A")
+        .slice(0, 10)
+        .map(movie => {
+        const title = movie.Title.replace(/\s/g, '+');
+        const year = movie.Year;
+          return (
+            <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
+              <div>
+                <img src={movie.Poster} alt={movie.title} />
+                <h2>{movie.Title}</h2>
+              </div>
+            </Link>
+          );
+        });
       return movieList;
     } else {
       return (
