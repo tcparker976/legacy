@@ -41,6 +41,7 @@ export default class MovieDetail extends Component {
         <div className='plot'>
            This is the plot. Lorem ipsum....
         </div>
+        <GraphContainer />
         <div className='producedBy'>
           {movie.productionCompanies}
         </div>
