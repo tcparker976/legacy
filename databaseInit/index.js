@@ -35,14 +35,13 @@ const movieDownload = async (movieObj) => {
             var movieOMDB = new Movie(data.data);
             movieOMDB.save((err, res) => {
               if (err) {
-                console.log(err);
-              } else {
-                isComplete(movieObj);
+                // console.log('\x1b[31m', err);
               }
+              isComplete(movieObj);
             });
             console.log('\x1b[34m', 'Added -', data.data.Title);
           } else {
-            console.log('\x1b[31m', `Skip  - ${movieObj.title}`);
+            console.log('\x1b[33m', `Skip  - ${movieObj.title}`);
             isComplete(movieObj);
           }
         }, 100);
@@ -53,7 +52,7 @@ const movieDownload = async (movieObj) => {
 }
 
 const omdbMassiveInitialize = function(starterKey) {
-  console.log('////////////////////////////////');
+  console.log('\x1b[0m', '////////////////////////////////');
   console.log('starterKey Accepted - Initializing')
   console.log('////////////////////////////////');
   if (starterKey === 'bingoBongo') {
@@ -67,4 +66,4 @@ const omdbMassiveInitialize = function(starterKey) {
 }
 
 console.log(`Alert!\nInitializing ${json.length} movies`);
-omdbMassiveInitialize('bingoBongo');
+omdbMassiveInitialize();
