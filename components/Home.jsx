@@ -5,7 +5,6 @@ import NavBar from './NavBar.jsx';
 const Home = () => {
   return (
     <div>
-      <NavBar />
       <MovieListContainer />
     </div>
   );
