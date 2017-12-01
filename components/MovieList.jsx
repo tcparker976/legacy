@@ -9,6 +9,10 @@ export default class MovieList extends Component {
     this.props.fetchMovies(query);
   }
 
+  componentWillUnmount() {
+    this.props.clearMovies();
+  }
+
   renderMovieList() {
     const { movies, fetchMovie, fetchMovies } = this.props
     if (movies) {
@@ -16,7 +20,7 @@ export default class MovieList extends Component {
       const title = movie.Title.replace(' ', '+');
       const year = movie.Year;
         return (
-          <Link to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
+          <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
             <div>
               <img src={movie.Poster} alt={movie.title} />
               <h2>{movie.Title}</h2>
