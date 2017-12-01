@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-// var omdb = require('../utils/ratingFetch');
-// console.log('omdb:', omdb);
 require('./index.js');
 
 var omdbSchema = new mongoose.Schema({
