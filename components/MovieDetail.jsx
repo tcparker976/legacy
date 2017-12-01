@@ -24,8 +24,7 @@ export default class MovieDetail extends Component {
     if (!movie) {
       return (
         <div>
-          <h1>Loading...</h1>
-          <img src="spinner.gif"></img>
+          <img src="/spinner.gif"></img>
         </div>
       )
     }

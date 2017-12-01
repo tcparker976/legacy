@@ -11,7 +11,7 @@ class NavBar extends Component {
    return (<div>
      <nav>
         <ul>
-          <li><Link to="/"><img className="logo" src="mars-logo.png"></img></Link></li>
+          <li><Link to="/"><img className="logo" src="/mars-logo.png"></img></Link></li>
           <li><Link to="/">Home</Link></li>
           <li><SearchBarContainer /></li>
         </ul> 

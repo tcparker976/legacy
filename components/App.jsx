@@ -5,7 +5,6 @@ const App = (props) => {
   return (
     <div>
       <NavBar />
-      <h1>MarsKliff</h1>
       {props.children}
     </div>
   );
