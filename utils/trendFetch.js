@@ -4,11 +4,11 @@ const moment = require('moment');
 module.exports.timeLine = googleTrends.interestOverTime;
 
 //return a promise
-module.exports.movieTrend = function(title, releaseDate) {
+module.exports.movieTrend = function(title) {
 	var options = {
 		keyword: [title, 'movies'],
-		startTime: moment(releaseDate).add(-6,'months').toDate(),
-		endTime: moment(releaseDate).add(6,'months').toDate()
+		startTime: moment(new Date()).add(-6,'months').toDate(),
+		endTime: moment(new Date()).toDate()
 	}
 	return googleTrends.interestOverTime(options);
 }

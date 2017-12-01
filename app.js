@@ -23,6 +23,29 @@ app.get('/search/:movie', (req, res) => {
   });
 });
 
+app.get('/trends/:title', async (req, res) => {
+  const { title } = req.params;
+  const trends = await movieTrend(title);
+  const { timelineData } = JSON.parse(trends).default;
+  trendData = timelineData.map((trend) => {
+    let { formattedAxisTime } = trend;
+    if (trend.formattedAxisTime.length < 7) formattedAxisTime += ', 2017';
+    return {
+      formattedAxisTime,
+      value: (trend.value[0] / trend.value[1]) * 100,
+    };
+  });
+  console.log(trendData);
+  res.send(trendData); 
+});
+
+app.get('/sentiment/:title', async (req, res) => {
+  const { title } = req.params;
+  const tweets = await avgTweetEmotion(title);
+  console.log(tweets);
+  res.send(tweets);
+})
+
 
 app.get('/ratings/:id', async (req, res) => {
   const { id } = req.params;
