@@ -49,14 +49,14 @@ app.get('/sentiment/:title', async (req, res) => {
 
 app.get('/ratings/:id', async (req, res) => {
   const { id } = req.params;
-  
+
   try {
     const results = await fetchRatings(id);
-    res.send(results.data); 
+    res.send(results.data);
   } catch (err) {
     res.status(400).send(err);
   }
-  
+
 })
 
 app.get('/*', (req, res) => {
@@ -65,7 +65,7 @@ app.get('/*', (req, res) => {
 
 module.exports = app.listen(port, () => console.log(`Listening on port ${port}`));
 
-/* ========== OLD API CALL - saving for reference in case we want trending again ===== 
+/* ========== OLD API CALL - saving for reference in case we want trending again =====
 
 app.get('/movie/:tmdbId', async (req, res) => {
   const { tmdbId } = req.params;
@@ -120,4 +120,4 @@ app.get('/movie/:tmdbId', async (req, res) => {
 
 });
 
-*/ 
+*/
