@@ -6,6 +6,7 @@ export const FETCH_RATINGS = 'FETCH_RATINGS';
 export const FETCH_TRENDS = 'FETCH_TRENDS';
 export const FETCH_SENTIMENT = 'FETCH_SENTIMENT';
 export const CLEAR_MOVIE = 'CLEAR_MOVIE';
+export const CLEAR_MOVIES = 'CLEAR_MOVIES';
 
 export const fetchMovie = (id) => {
   const request = axios.get(`/movie/${id}`);
@@ -51,6 +52,12 @@ export const fetchRatings = (id) => {
 export const clearMovie = () => {
   return {
     type: CLEAR_MOVIE
+  }
+}
+
+export const clearMovies = () => {
+  return {
+    type: CLEAR_MOVIES
   }
 }
 

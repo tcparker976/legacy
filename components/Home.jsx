@@ -4,7 +4,7 @@ import MovieListContainer from '../containers/MovieListContainer';
 const Home = () => {
   return (
     <div>
-      <MovieListContainer />
+      <h2>Home page view</h2>
     </div>
   );
 }
