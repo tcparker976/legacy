@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import boxoffice from './boxoffice';
 import movie from './movie';
 import movies from './movies';
 import trends from './trends';
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
   movie,
   movies,
   sentiment,
-  trends
+  trends,
+  boxoffice
 });
 
 export default rootReducer;
