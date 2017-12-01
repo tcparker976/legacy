@@ -16,7 +16,7 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    const query = this.state.term.replace(' ', '+');
+    const query = this.state.term.replace(/\s/g, '+');
     if (query !== this.props.match.params.query) {
       this.props.clearMovies();
       this.props.fetchMovies(query);
