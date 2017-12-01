@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchMovie, fetchRatings, clearMovie } from '../actions/MovieAction.js';
+import { fetchRatings, fetchSentiment, fetchTrends, clearMovie } from '../actions/MovieAction.js';
 import MovieDetail from '../components/MovieDetail.jsx';
 
-const mapStateToProps = ({ movie }) => {
-  return { movie };
+const mapStateToProps = ({ movie, sentiment, trends }) => {
+  return { movie, sentiment, trends };
 }
 
 const mapDispatchToProps = {
-  fetchMovie,
   fetchRatings,
+  fetchTrends,
+  fetchSentiment,
   clearMovie
 }
 

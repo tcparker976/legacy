@@ -17,9 +17,6 @@
     },
     "WATSONAPI": {
       "required": true
-    },
-    "OMDBAPI": {
-      "required": true
     }
   },
   "formation": {

@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import App from '../components/App';
 import Home from '../components/Home';
+import MovieListContainer from '../containers/MovieListContainer';
 import MovieDetailContainer from '../containers/MovieDetailContainer';
 import reducers from '../reducers';
 
@@ -16,7 +17,8 @@ ReactDOM.render(
     <Router>
       <App>
         <Route exact path="/" component={Home} />
-        <Route path="/moviedetails/:imdbId" component={MovieDetailContainer} />
+        <Route path="/movie-list/:query" component={MovieListContainer} />
+        <Route path="/moviedetails/:imdbId/:title" component={MovieDetailContainer} />
       </App>
     </Router>
   </Provider>,

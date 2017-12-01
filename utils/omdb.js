@@ -11,7 +11,7 @@ const omdbToken = process.env.OMDBAPI || config.OMDBAPI
  */
 exports.searchMoviesByName = query => {
   return (
-    axios.get(`http://www.omdbapi.com/?apikey=${omdbToken}&s=${query}`)
+    axios.get(`http://www.omdbapi.com/?apikey=${omdbToken}&s=${query}&type=movie`)
     .then(res => {
       return res.data
     }).catch(err => console.error(err.response.data.status_message))

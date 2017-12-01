@@ -1,12 +1,11 @@
 import React from 'react';
-import SearchBarContainer from '../containers/SearchBarContainer';
 import MovieListContainer from '../containers/MovieListContainer';
+import NavBar from './NavBar.jsx';
 
 const Home = () => {
   return (
     <div>
-      <SearchBarContainer />
-      <MovieListContainer />
+      <h2>Home page view</h2>
     </div>
   );
 }
