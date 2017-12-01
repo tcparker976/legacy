@@ -36,7 +36,7 @@ app.get('/trends/:title', async (req, res) => {
     };
   });
   console.log(trendData);
-  res.send(trendData); 
+  res.send(trendData);
 });
 
 app.get('/sentiment/:title', async (req, res) => {
@@ -45,7 +45,6 @@ app.get('/sentiment/:title', async (req, res) => {
   console.log(tweets);
   res.send(tweets);
 })
-
 
 app.get('/ratings/:id', async (req, res) => {
   const { id } = req.params;
