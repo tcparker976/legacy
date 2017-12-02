@@ -11,7 +11,7 @@ const omdbToken = '23f31b33' || process.env.OMDBAPI || config.OMDBAPI;
 var json = require('./movieList1900.json');
 // console.log(json.length);
 
-var totalReadCount = 18167;
+var totalReadCount = 0;
 
 var isComplete = () => {
   console.log('\x1b[0m' + `${totalReadCount} out of ${json.length - 1}`);
@@ -69,11 +69,11 @@ const omdbMassiveInitialize = function(starterKey) {
   console.log('starterKey Accepted - Initializing')
   console.log('////////////////////////////////');
   if (starterKey === 'bingoBongo') {
-    for (var i = 18168; i < json.length; i++) {
+    for (var i = 0; i < json.length; i++) {
       (function (i) {
         setTimeout(function () {
           movieDownload(json[i])
-        }, 5*(i - 18167));
+        }, 5*(i));
       })(i);
     }
   } else {
@@ -84,4 +84,4 @@ const omdbMassiveInitialize = function(starterKey) {
 }
 
 console.log(`Alert!\nInitializing ${json.length} movies`);
-omdbMassiveInitialize();
+omdbMassiveInitialize('');
