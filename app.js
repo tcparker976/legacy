@@ -12,9 +12,10 @@ const public = path.join(__dirname, '/public');
 
 const port = process.env.PORT || 7331;
 
-app.get('/', (req, res) => {
-  res.send('This is the landing page!');
-});
+app.get('/latestTen', async (req, res) => {
+  var latestTen = await Movie.find().sort({"updatedAt": -1}).limit(10);
+  res.send(latestTen);
+})
 
 app.get('/search/:movie', (req, res) => {
   omdb.searchMoviesByName(req.params.movie).then((data) => {
