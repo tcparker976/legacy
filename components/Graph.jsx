@@ -1,26 +1,26 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip, Legend } from 'recharts';
+import { ResponsiveContainer, ReferenceLine, LineChart, Line, CartesianGrid, XAxis, YAxis, Label, Tooltip, Legend } from 'recharts';
 
-const Graph = (props) => {
+const Graph = ({ trends, movie }) => {
+  console.log('i am here..?');
   return (
     <div id="graph">
-      <LineChart width={1000} height={400} data={props.graphData}>
-        <Line name={props.movie.title || ' '} type="monotone" dataKey="primaryTrendVolume" stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" />
-        <XAxis dataKey="date">
-          <Label value="Date" offset={0} position="insideBottom" />
-        </XAxis>
-        <YAxis label={{ value: 'Relative Search Volume', angle: -90, position: 'insideLeft' }} />
-        <Tooltip />
-        <Legend verticalAlign="top" />
-      </LineChart>
+      <h2>Google Trends</h2>
+      <ResponsiveContainer height={300}>
+        <LineChart data={trends}>
+          <Line name={movie.title || ' '} type="monotone" dataKey="primaryTrendVolume" stroke="#913A24" dot={false} />
+          <XAxis dataKey="date" type="category" />
+          <YAxis label={{ value: 'Relative Search Volume', angle: -90, position: 'insideLeft' }} domain={['dataMin - 1', 'dataMax + 1']}/>
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 }
 
 Graph.propTypes = {
-  graphData: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  trends: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default Graph;

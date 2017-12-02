@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GraphContainer from '../containers/GraphContainer';
+import BoxOfficeGraphContainer from '../containers/BoxOfficeGraphContainer.jsx';
 import Reviews from './Reviews';
 import MovieInfoContainer from '../containers/MovieInfoContainer';
 
@@ -27,7 +27,15 @@ export default class MovieDetail extends Component {
         </div>
       )
     }
+    const renderBoxOffice = () => {
+      if (parseInt(movie.Year) >= 1980 && parseInt(movie.Year) < 2017) {
+        return <BoxOfficeGraphContainer />
+      } else {
+        return <h3>Box office graph not available.</h3>
+      }
+    }
     return (
+    <div>
       <div className="movie-grid">
         <div className="poster">
           <img src={movie.Poster} alt="Image Unavailiable" />
@@ -35,6 +43,8 @@ export default class MovieDetail extends Component {
         <Reviews reviews={movie.Ratings} />
         <MovieInfoContainer />
       </div>
+      {renderBoxOffice()}
+    </div>
     );
   }
 
