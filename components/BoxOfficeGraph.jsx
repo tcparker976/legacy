@@ -75,7 +75,7 @@ export default class BoxOfficeGraph extends Component {
               axisLine={false} 
               tickLine={false}
               tickFormatter={tick => `$${tick.toLocaleString()}`}
-               />
+              />
             <CartesianGrid vertical={false} style={{opacity: 0.15}} />
             <Tooltip 
             content={<MovieTooltip />} 

@@ -7,7 +7,7 @@ module.exports.timeLine = googleTrends.interestOverTime;
 module.exports.movieTrend = function(title) {
 	var options = {
 		keyword: [title, 'movies'],
-		startTime: moment(new Date()).add(-6,'months').toDate(),
+		startTime: moment(new Date()).add(-12,'months').toDate(),
 		endTime: moment(new Date()).toDate()
 	}
 	return googleTrends.interestOverTime(options);

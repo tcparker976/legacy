@@ -5,7 +5,7 @@ export default function (state = null, action) {
   switch (action.type) {
     case FETCH_BOXOFFICE:
       return action.payload.data.filter(movie => {
-        return movie.BoxOffice !== "N/A"
+        return movie.BoxOffice && movie.BoxOffice !== "N/A"
       })
       .map(movie => {
         movie.BoxOffice = parseInt(movie.BoxOffice.substr(1, movie.BoxOffice.length).replace(/,/g, ''));
