@@ -116,7 +116,7 @@ nav {
 .logo-container {
   display: flex;
   justify-content: center;
-  padding-left: 100px;
+  padding-left: 2em;
 }
 
 .logo-container > div {
@@ -134,7 +134,7 @@ nav {
   display: flex; 
   flex-direction: column;
   justify-content: center;
-  padding-right: 100px;
+  padding-right: 2em;
 }
 
 .logo {
