@@ -16,9 +16,11 @@ class NavBar extends Component {
               <Link to="/"><img className="logo" src="/mars-logo.png"></img></Link>
             </div>
             <div>
-              <h1 id="site-name">
-                MarsKlif
-              </h1>
+              <Link to="/">
+                <h1 id="site-name">
+                  MarsKlif
+                </h1>
+              </Link>
             </div>
         </div>
         <div className="Albrey">

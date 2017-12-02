@@ -26,7 +26,7 @@ export default class MovieList extends Component {
             <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
               <div>
                 <img src={movie.Poster} alt={movie.title} />
-                <h2>{movie.Title}</h2>
+                <h2 className="movie-name">{movie.Title}</h2>
               </div>
             </Link>
           );
