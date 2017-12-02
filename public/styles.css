@@ -1,6 +1,5 @@
 /* =============================
       Overall Styles
-============================== */      
 
 body {
   text-align: center;
@@ -11,86 +10,180 @@ body {
   margin: 0 auto;
 }
 
+*/
 
-
-.input-group {
-  margin: 25px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.recharts-wrapper {
-  margin: 0 auto;
+a {
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+.search-grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100%, repeat(6, 1fr);
+  grid-template-rows: 80px 1fr;
 }
 
 .movie-list-grid {
-  margin: 2em;
-  display: grid; 
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 20px;
-}
-
-.movie-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  min-height: 300px;
-  margin-right: 70px;
-  margin-left: 70px;
-  color: #EAEAEA;
+  width: 95%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr, 1fr;
+  grid-gap: 45px;
+  padding-top: 80px; 
+  align-self: center;
 }
 
-/* ==================================== 
-        Movie Detail Styles      
-===================================== */
 
-.poster {
-  padding-top: 30px;
-  grid-column: 2;
+.recent-movie-entry-flex {
+  display: flex;
+  background-color: rgb(27, 27, 27);
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.ratings {
-  margin-top: 30px;
-  grid-column: 3;
-  border: 1px solid black;
-  padding-right: 200px;
-  width: 150px;
-}
-
-/* =====================================
-         Navigation Styles
-====================================== */
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #212121;
-}
-
-li {
-  float: left;
-  border-right:1px solid #363535;
-}
-
-li a {
+.recent-movie-entry-flex > img {
   display: block;
-  color: #E57850;
-  padding: 14px 16px;
-  text-align: center;
-  text-decoration: none;
+  align-self: center;
+  height: 92%;
+  width: 92%;
 }
 
-li:last-child {
-  float: right;
+.recent-movie-entry {
+  position: relative;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  color: #CE4223;
-  text-decoration: none;
+.recent-movie-entry-flex {
+  transition: 0.2s all;
+}
+
+.recent-movie-entry:hover .recent-movie-entry-flex{
+  opacity: 0.3;
+}
+
+.recent-movie-title {
+  transition: 0.2s all;
+  display: none;
+}
+
+.recent-movie-entry:hover .recent-movie-title {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  display: inline-block;  
+}
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #131313;
+}
+
+
+nav {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  background-color: #212121;
+  padding-top: 5px;
+  padding-bottom: 5px; 
+  background-color: #363535;
+}
+
+.Kristina {
+  display: flex;
+}
+
+.Kristina:last-child {
+  padding-left: 10px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding-left: 2em;
+}
+
+.logo-container > div {
+  padding: 10px;
+}
+
+.logo-container > div:last-child {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Albrey {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 2em;
 }
 
 .logo {
+  flex: 1;
   height: auto;
-  width: 60px;
+  width: 50px;
   display: inline-block;
 }
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.search-bar-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 6px 100px 6px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

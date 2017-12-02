@@ -16,18 +16,27 @@ export default class MovieList extends Component {
   renderMovieList() {
     const { movies, fetchMovie, fetchMovies } = this.props
     if (movies) {
-      const movieList = movies.filter(mov => mov.Poster !== "N/A").map(movie => {
-      const title = movie.Title.replace(/\s/g, '+');
-      const year = movie.Year;
-        return (
-          <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${title}`} key={movie.imdbID}>
-            <div>
-              <img src={movie.Poster} alt={movie.title} />
-              <h2>{movie.Title}</h2>
-            </div>
-          </Link>
-        );
-      });
+      const movieList = movies
+        .filter(mov => {
+          let img = new Image();
+          img.src = mov.Poster;
+          return mov.Poster !== "N/A" && img.height >= 400
+        })
+        .slice(0, 12)
+        .map((movie, index) => {
+        const title = movie.Title.replace(/\s/g, '+');
+        const year = movie.Year;
+          return (
+            <Link key={index} to={`/moviedetails/${movie.imdbID}/${title}`}>
+              <div className="recent-movie-entry">
+                <div className="recent-movie-entry-flex">
+                  <img src={movie.Poster} />
+                </div>
+                <h2 className="recent-movie-title">{movie.Title}</h2>
+              </div>
+            </Link>
+          );
+        });
       return movieList;
     } else {
       return (

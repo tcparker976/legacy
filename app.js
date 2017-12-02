@@ -13,7 +13,10 @@ const public = path.join(__dirname, '/public');
 const port = process.env.PORT || 7331;
 
 app.get('/latestTen', async (req, res) => {
-  var latestTen = await Movie.find().sort({"updatedAt": -1}).limit(10);
+  const latestTen = await Movie
+    .find()
+    .sort({"updatedAt": -1})
+    .limit(12);
   res.send(latestTen);
 })
 
