@@ -17,7 +17,8 @@ class Reviews extends Component {
       <h2 className="reviews-title">Reviews</h2>
          {
           this.state.criticArr.map((critic, index) => {
-          if(props.movie.Ratings[index] === undefined) {
+            console.log('REVIEWS: ', this.props);
+          if(this.props.reviews[index] === undefined) {
             return (
               <div className="review" key={index}>
                 <h4>{this.state.criticArr[index]}</h4>
@@ -28,11 +29,13 @@ class Reviews extends Component {
             return (
               <div className="review" key={index}>
                 <h4>{this.state.criticArr[index]}</h4>
-                <h5>{props.movie.Ratings[index]}</h5>
+                <h5>{this.props.reviews[index].Value}</h5>
              </div>
             )
-          } 
-        })}
+          // } 
+        }
+      })
+    }      
     </div>
     )      
   }
