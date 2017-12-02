@@ -1,44 +1,44 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
+import React, { Component } from 'react';
+import PlotContainer from '../containers/PlotContainer';
 
-const translateToCurrency = (value) => {
-  let num = value;
-  let commaCounter = 0;
-  let res = '';
-  while (num > 0) {
-    const dig = num % 10;
+class MovieInfo extends Component {
+  constructor(props) {
+    super(props);
 
-    commaCounter += 1;
-    if (commaCounter > 3) {
-      res = `,${res}`;
-      commaCounter %= 3;
-    }
-    res = dig + res;
-
-    num = Math.floor(num / 10);
+    this.handleDirectorsDataType.bind(this);
   }
-  return `$${res}`;
-};
 
-const MovieInfo = ({ movie }) => {
-  const primaryTitle = movie.title;
-  return (
-    <div>
-      <h1>{primaryTitle}</h1>
-    </div>
-  );
+  handleDirectorsDataType(directorsData, movie) {
+    if(typeof directorsData === "string" && (directorsData.indexOf(',') !== -1)) {
+      return <h6>Directors: {movie.Director}</h6>
+    } else if(Array.isArray(directorsData) && directorsData.length === 1) {
+      if (directorsData[0].indexOf(',') !== -1) {
+        return <h6>Directors: {movie.Director[0]}</h6>
+      } else {
+        return <h6>Director: {movie.Director[0]}</h6> 
+      }
+    } else if(Array.isArray(directorsData) && directorsData.length > 1) {
+      return <h5>Directors: <p>{movie.Director.join(' ')}</p></h5>
+    } else {
+      return <h5>Director: <p>{movie.Director}</p></h5>
+    }
+  }
+
+  render() {
+    const { movie } = this.props
+    return (
+      <div className="movie-info">
+        <PlotContainer />
+        <div>
+          <ul>
+            <li>{this.handleDirectorsDataType(movie.Director, movie)}</li>
+            <li><h5>Stars:</h5> <p>{movie.Actors}</p></li>
+            <li><h5>Revenue:</h5> <p>{movie.BoxOffice}</p></li>
+          </ul>
+        </div>  
+      </div>
+      ) 
+  }
 }
-
-MovieInfo.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string,
-    revenue: PropTypes.number,
-    releaseDate: PropTypes.string,
-    emotion: PropTypes.shape({}),
-    genres: PropTypes.arrayOf(PropTypes.string),
-    productionCompanies: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
-};
 
 export default MovieInfo;

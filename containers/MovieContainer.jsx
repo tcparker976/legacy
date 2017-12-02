@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchRatings, fetchSentiment, fetchTrends, clearMovie } from '../actions/MovieAction.js';
-import MovieDetail from '../components/MovieDetail.jsx';
+import MovieDetail from '../components/MovieDetail';
 
 const mapStateToProps = ({ movie, sentiment, trends }) => {
   return { movie, sentiment, trends };
