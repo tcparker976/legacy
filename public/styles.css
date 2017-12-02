@@ -1,20 +1,23 @@
 /* =============================
       Overall Styles
+============================== */
 
 body {
   text-align: center;
-  background-image: linear-gradient(#131313 80%, #CE4223);
+  background-image: linear-gradient(#131313 95%, #CE4223);
   background-attachment: fixed; 
   color: #EAEAEA;
   font-family: 'Titillium Web', sans-serif;
   margin: 0 auto;
 }
 
-*/
-
-* {
+/** {
   margin: 0;
   padding: 0;
+}*/
+
+p {
+  opacity: 0.7;
 }
 
 a {
@@ -39,7 +42,6 @@ a {
   padding-top: 80px; 
   align-self: center;
 }
-
 
 .recent-movie-entry-flex {
   display: flex;
@@ -86,12 +88,117 @@ h2 {
   display: inline-block;  
 }
 
-body {
-  font-family: 'Titillium Web', sans-serif;
-  background-color: #131313;
+/* ==================================== 
+        Movie Detail Styles      
+===================================== */
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 130px 320px 1fr;
+  min-height: 300px;
+  max-width: 1200px;
+  margin-right: 70px;
+  margin-left: 70px;
+  color: #EAEAEA;
 }
 
+.reviews {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  grid-column: 1;
+  grid-row: 1;
+  border: 1px #363535;
+  width: 120px;
+  height: auto;
+  text-align: center;
+}
 
+.review h5 {
+  margin-top: 0px;
+  opacity: 0.7;
+}
+
+.review h4 {
+  margin-bottom: 0px;
+}
+
+.reviews-title {
+  width: 120px;
+  margin-bottom: 0px;
+}
+
+.poster {
+  padding-top: 30px;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  grid-column: 3;
+  grid-row: 1;
+  padding: 20px;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.movie-info p {
+  opacity: 0.7;
+  display: inline;
+}
+
+.move-info h5 {
+  display: inline;
+}
+
+.movie-info-credits {
+  padding-left: 20px
+}
+
+.movie-info li {
+  list-style-type: none;
+}
+
+.plot {
+  background-color: rgba(54, 53, 53, .20);
+  border-radius: 25px;
+  padding-left: 25px;
+  padding-bottom: 20px;
+  padding-right: 25px;
+}
+
+.plot ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.plot h6 {
+  opacity: 0.7;
+}
+
+.plot li {
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right:1px solid #bbb;
+}
+
+.plot li:first-child {
+  padding-left: 0px;
+}
+
+.plot li:last-child {
+    border-right: none;
+}
+
+/* =====================================
+         Navigation Styles
+====================================== */
 nav {
   position: fixed;
   z-index: 100;

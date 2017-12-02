@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GraphContainer from '../containers/GraphContainer.jsx';
-import MovieInfo from './MovieInfo';
-import Ratings from './Ratings';
+import GraphContainer from '../containers/GraphContainer';
+import Reviews from './Reviews';
+import MovieInfoContainer from '../containers/MovieInfoContainer';
 
 export default class MovieDetail extends Component {
 
@@ -30,14 +30,10 @@ export default class MovieDetail extends Component {
     return (
       <div className="movie-grid">
         <div className="poster">
-          <img src={movie.Poster} alt="" />
+          <img src={movie.Poster} alt="Image Unavailiable" />
         </div>
-        <div className='plot'>
-           This is the plot. Lorem ipsum....
-        </div>
-        <div className='producedBy'>
-          {movie.productionCompanies}
-        </div>
+        <Reviews reviews={movie.Ratings} />
+        <MovieInfoContainer />
       </div>
     );
   }
