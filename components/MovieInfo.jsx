@@ -47,18 +47,21 @@ class MovieInfo extends Component {
   }
 
   render() {
-    const { movie } = this.props
+    const { movie, trends, sentiment } = this.props
+    console.log('SENTIMENT: ', sentiment);
     return (
       <div className="movie-info">
         <PlotContainer />
-        <div>
-          <ul>
+        <ul className="movie-info-credits">
             {this.handleDirectorsDataType(movie.Director, movie)}
             {this.handleWritersDataType(movie.Writer, movie)}
             <li><b>Stars:</b> <p>{movie.Actors}</p></li>
-          </ul>
-        </div>  
-      </div>
+        </ul>  
+        <ul>
+          <li>Awards</li>
+          <li></li>
+        </ul>
+      </div>  
       ) 
   }
 }

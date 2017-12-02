@@ -94,8 +94,9 @@ h2 {
 
 .movie-grid {
   display: grid;
-  grid-template-columns: 130px 1fr 600px;
+  grid-template-columns: 130px 320px 1fr;
   min-height: 300px;
+  max-width: 1200px;
   margin-right: 70px;
   margin-left: 70px;
   color: #EAEAEA;
@@ -104,7 +105,7 @@ h2 {
 .reviews {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 60px;
   grid-column: 1;
   grid-row: 1;
   border: 1px #363535;
@@ -113,15 +114,18 @@ h2 {
   text-align: center;
 }
 
-.reviews h5 {
+.review h5 {
+  margin-top: 0px;
   opacity: 0.7;
 }
 
+.review h4 {
+  margin-bottom: 0px;
+}
+
 .reviews-title {
-  background-color: rgba(54, 53, 53, .20);
-  border-radius: 15px;
   width: 120px;
-  height: 80px;
+  margin-bottom: 0px;
 }
 
 .poster {
@@ -148,6 +152,10 @@ h2 {
 
 .move-info h5 {
   display: inline;
+}
+
+.movie-info-credits {
+  padding-left: 20px
 }
 
 .movie-info li {

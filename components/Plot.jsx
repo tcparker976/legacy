@@ -9,6 +9,7 @@ const Plot = (props) => {
         <li>{props.movie.Rated}</li>
         <li>{props.movie.Runtime}</li>
         <li>{props.movie.Genre[0]}</li>
+        <li>{props.movie.Released} ({props.movie.Country})</li>
       </ul>
       <p>{props.movie.Plot}</p>
     </div>
