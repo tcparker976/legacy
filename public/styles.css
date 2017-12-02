@@ -136,7 +136,7 @@ h2 {
   margin-top: 30px;
   grid-column: 3;
   grid-row: 1;
-  padding: 20px;
+  padding: 0 20px 20px;
   margin-right: 10px;
   text-align: left;
 }
@@ -164,11 +164,13 @@ h2 {
   padding-left: 25px;
   padding-bottom: 20px;
   padding-right: 25px;
+  max-height: 420px; /* nice */
+  overflow-y: scroll;
 }
 
 .plot ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0 0 10px;
   padding: 0;
   overflow: hidden;
 }
@@ -190,6 +192,15 @@ h2 {
 
 .plot li:last-child {
     border-right: none;
+}
+
+.movie-title {
+  margin-bottom: 8px;
+}
+
+.line {
+  display: block;
+  background-color: #f0ff33;
 }
 
 /* =====================================
