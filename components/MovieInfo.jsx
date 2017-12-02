@@ -1,44 +1,66 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
+import React, { Component } from 'react';
+import PlotContainer from '../containers/PlotContainer';
 
-const translateToCurrency = (value) => {
-  let num = value;
-  let commaCounter = 0;
-  let res = '';
-  while (num > 0) {
-    const dig = num % 10;
+class MovieInfo extends Component {
+  constructor(props) {
+    super(props);
 
-    commaCounter += 1;
-    if (commaCounter > 3) {
-      res = `,${res}`;
-      commaCounter %= 3;
-    }
-    res = dig + res;
-
-    num = Math.floor(num / 10);
+    this.handleDirectorsDataType = this.handleDirectorsDataType.bind(this);
+    this.handleWritersDataType = this.handleWritersDataType.bind(this);
+    this.handleDataType = this.handleDataType.bind(this);
   }
-  return `$${res}`;
-};
 
-const MovieInfo = ({ movie }) => {
-  const primaryTitle = movie.title;
-  return (
-    <div>
-      <h1>{primaryTitle}</h1>
-    </div>
-  );
+  handleDirectorsDataType(data, movie) {
+    if(typeof data === "string" && (data.indexOf(',') !== -1)) {
+      return <li><b>Directors:</b> <p>{movie.Director}</p></li>
+    } else if(Array.isArray(data) && data.length === 1) {
+      if (data[0].indexOf(',') !== -1) {
+        return <li><b>Directors:</b> <p>{movie.Director[0]}</p></li>
+      } else {
+        return <li><b>Director:</b> <p>{movie.Director[0]}</p></li> 
+      }
+    } else if(Array.isArray(data) && data.length > 1) {
+      return <li><b>Directors:</b> <p>{movie.Director.join(' ')}</p></li>
+    } else {
+      return <li><b>Director:</b> <p>{movie.Director}</p></li>
+    }
+  }
+
+  handleWritersDataType(data, movie) {
+    if(typeof data === "string" && (data.indexOf(',') !== -1)) {
+      return <li><b>Writers:</b> <p>{movie.Writer}</p></li>
+    } else if(Array.isArray(data) && data.length === 1) {
+      if (data[0].indexOf(',') !== -1) {
+        return <li><b>Writers:</b> <p>{movie.Writer[0]}</p></li>
+      } else {
+        return <li><b>Writer:</b> <p>{movie.Writer[0]}</p></li> 
+      }
+    } else if(Array.isArray(data) && data.length > 1) {
+      return <li><b>Writers:</b> <p>{movie.Writer.join(' ')}</p></li>
+    } else {
+      return <li><b>Writer:</b> <p>{movie.Writer}</p></li>
+    }
+  }
+
+  handleDataType(data, movie, dataToDisplay) {
+    //WILL REFACTOR ASAP
+  }
+
+  render() {
+    const { movie, trends, sentiment } = this.props
+    console.log('SENTIMENT: ', sentiment);
+    return (
+      <div className="movie-info">
+        <PlotContainer />
+        <ul className="movie-info-credits">
+            {this.handleDirectorsDataType(movie.Director, movie)}
+            {this.handleWritersDataType(movie.Writer, movie)}
+            <li><b>Stars:</b> <p>{movie.Actors}</p></li>
+        </ul>  
+        <span><b>Awards:</b> <p>{movie.Awards}</p> </span>
+      </div>  
+      ) 
+  }
 }
-
-MovieInfo.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string,
-    revenue: PropTypes.number,
-    releaseDate: PropTypes.string,
-    emotion: PropTypes.shape({}),
-    genres: PropTypes.arrayOf(PropTypes.string),
-    productionCompanies: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
-};
 
 export default MovieInfo;

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GraphContainer from '../containers/GraphContainer.jsx';
 import BoxOfficeGraphContainer from '../containers/BoxOfficeGraphContainer.jsx';
-import MovieInfo from './MovieInfo';
-import Ratings from './Ratings';
+import Reviews from './Reviews';
+import MovieInfoContainer from '../containers/MovieInfoContainer';
 
 export default class MovieDetail extends Component {
 
@@ -36,23 +35,16 @@ export default class MovieDetail extends Component {
       }
     }
     return (
-      <div>
-        <div className="movie-grid">
-          <div className="poster">
-            <img src={movie.Poster} alt="" />
-          </div>
-          <div className='plot'>
-            This is the plot. Lorem ipsum....
-          </div>
-          <div className='producedBy'>
-            {movie.productionCompanies}
-          </div>
+    <div>
+      <div className="movie-grid">
+        <div className="poster">
+          <img src={movie.Poster} alt="Image Unavailiable" />
         </div>
-        {renderBoxOffice()}
-        <div>
-          <h3>There will be other stuff down here</h3>
-        </div>
+        <Reviews reviews={movie.Ratings} />
+        <MovieInfoContainer />
       </div>
+      {renderBoxOffice()}
+    </div>
     );
   }
 

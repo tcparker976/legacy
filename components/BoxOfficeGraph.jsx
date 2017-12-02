@@ -32,7 +32,7 @@ export default class BoxOfficeGraph extends Component {
     if (!boxoffice) {
       return (
         <div>
-          Loading...
+          Loading Box Office Data...
         </div>
       )
     }
