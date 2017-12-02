@@ -84,4 +84,4 @@ const omdbMassiveInitialize = function(starterKey) {
 }
 
 console.log(`Alert!\nInitializing ${json.length} movies`);
-omdbMassiveInitialize('bingoBongo');
+omdbMassiveInitialize();
