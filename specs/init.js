@@ -17,12 +17,12 @@ describe('Get request to /latestTen', () => {
       .get('/')
       .expect(200, done);
   });
-  it('should respond with 10 results', function(done) {
+  it('should respond with 12 results', function(done) {
     request(app)
       .get('/latestTen')
       .end((err, response) => {
         if (err) { console.log(err) };
-        expect(response.body.length).to.equal(10);
+        expect(response.body.length).to.equal(12);
         done();
       })
   });
@@ -32,7 +32,6 @@ describe('Get request to /latestTen', () => {
       .end((err, response) => {
         if (err) { console.log(err) };
         expect(new Date(response.body[0].updatedAt)).to.be.above(new Date(response.body[1].updatedAt));
-        expect(response.body.length).to.equal(10);
         done();
       })
   });

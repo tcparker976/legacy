@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import MovieList from '../components/MovieList.jsx';
 
+console.log("RUNNING MOVIE LIST")
 
 const mapStateToProps = ({ movies }) => {
   return { movies }
