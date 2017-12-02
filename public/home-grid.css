@@ -1,6 +1,6 @@
 .home-grid-container {
   display: grid;
-  /* width: 100%; */
+  width: 95%;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr, 1fr;
   grid-gap: 45px;
