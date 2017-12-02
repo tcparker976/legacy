@@ -39,7 +39,7 @@ describe('Get request to /latestTen', () => {
 });
 
 describe('Get request to /search:movie', () => {
-  it('should respond with 200', function(done) {
+  it('works', function(done) {
     var query = 'The Assassination of Jesse James by the Coward Robert Ford';
     request(app)
       .get(`/search/${query}`)
