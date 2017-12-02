@@ -141,12 +141,17 @@ h2 {
   text-align: left;
 }
 
-.movie-info li {
-  list-style-type: none;
+.movie-info p {
+  opacity: 0.7;
+  display: inline;
 }
 
-.movie-info h6 {
-  
+.move-info h5 {
+  display: inline;
+}
+
+.movie-info li {
+  list-style-type: none;
 }
 
 .plot {
@@ -177,28 +182,10 @@ h2 {
 
 .plot li:first-child {
   padding-left: 0px;
-  /*padding-right: 0px;*/
 }
 
 .plot li:last-child {
     border-right: none;
-}
-
-/*.inner-plot-flex {
-  display: flex;
-  justify-content: space-between;
-}*/
-
-.plot h1 {
-  /*margin-bottom: 0px;*/
-}
-
-.plot i {
-  /*margin-bottom: 0px;*/
-}
-
-.inner-plot-flex h6 {
-  /*height: 30px;*/
 }
 
 /* =====================================

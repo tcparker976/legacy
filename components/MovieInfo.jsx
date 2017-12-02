@@ -5,23 +5,45 @@ class MovieInfo extends Component {
   constructor(props) {
     super(props);
 
-    this.handleDirectorsDataType.bind(this);
+    this.handleDirectorsDataType = this.handleDirectorsDataType.bind(this);
+    this.handleWritersDataType = this.handleWritersDataType.bind(this);
+    this.handleDataType = this.handleDataType.bind(this);
   }
 
-  handleDirectorsDataType(directorsData, movie) {
-    if(typeof directorsData === "string" && (directorsData.indexOf(',') !== -1)) {
-      return <h6>Directors: {movie.Director}</h6>
-    } else if(Array.isArray(directorsData) && directorsData.length === 1) {
-      if (directorsData[0].indexOf(',') !== -1) {
-        return <h6>Directors: {movie.Director[0]}</h6>
+  handleDirectorsDataType(data, movie) {
+    if(typeof data === "string" && (data.indexOf(',') !== -1)) {
+      return <li><b>Directors:</b> <p>{movie.Director}</p></li>
+    } else if(Array.isArray(data) && data.length === 1) {
+      if (data[0].indexOf(',') !== -1) {
+        return <li><b>Directors:</b> <p>{movie.Director[0]}</p></li>
       } else {
-        return <h6>Director: {movie.Director[0]}</h6> 
+        return <li><b>Director:</b> <p>{movie.Director[0]}</p></li> 
       }
-    } else if(Array.isArray(directorsData) && directorsData.length > 1) {
-      return <h5>Directors: <p>{movie.Director.join(' ')}</p></h5>
+    } else if(Array.isArray(data) && data.length > 1) {
+      return <li><b>Directors:</b> <p>{movie.Director.join(' ')}</p></li>
     } else {
-      return <h5>Director: <p>{movie.Director}</p></h5>
+      return <li><b>Director:</b> <p>{movie.Director}</p></li>
     }
+  }
+
+  handleWritersDataType(data, movie) {
+    if(typeof data === "string" && (data.indexOf(',') !== -1)) {
+      return <li><b>Writers:</b> <p>{movie.Writer}</p></li>
+    } else if(Array.isArray(data) && data.length === 1) {
+      if (data[0].indexOf(',') !== -1) {
+        return <li><b>Writers:</b> <p>{movie.Writer[0]}</p></li>
+      } else {
+        return <li><b>Writer:</b> <p>{movie.Writer[0]}</p></li> 
+      }
+    } else if(Array.isArray(data) && data.length > 1) {
+      return <li><b>Writers:</b> <p>{movie.Writer.join(' ')}</p></li>
+    } else {
+      return <li><b>Writer:</b> <p>{movie.Writer}</p></li>
+    }
+  }
+
+  handleDataType(data, movie, dataToDisplay) {
+    //WILL REFACTOR ASAP
   }
 
   render() {
@@ -31,9 +53,9 @@ class MovieInfo extends Component {
         <PlotContainer />
         <div>
           <ul>
-            <li>{this.handleDirectorsDataType(movie.Director, movie)}</li>
-            <li><h5>Stars:</h5> <p>{movie.Actors}</p></li>
-            <li><h5>Revenue:</h5> <p>{movie.BoxOffice}</p></li>
+            {this.handleDirectorsDataType(movie.Director, movie)}
+            {this.handleWritersDataType(movie.Writer, movie)}
+            <li><b>Stars:</b> <p>{movie.Actors}</p></li>
           </ul>
         </div>  
       </div>
