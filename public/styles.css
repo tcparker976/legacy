@@ -4,7 +4,7 @@
 
 body {
   text-align: center;
-  background-image: linear-gradient(#131313 90%, #CE4223);
+  background-image: linear-gradient(#131313 95%, #CE4223);
   background-attachment: fixed; 
   color: #EAEAEA;
   font-family: 'Titillium Web', sans-serif;
@@ -93,4 +93,22 @@ li a:hover {
   height: auto;
   width: 60px;
   display: inline-block;
+}
+
+/* ==================================== 
+        Movie Tooltip     
+===================================== */
+
+.movie-tooltip {
+  padding: 2em;
+  text-align: left;
+  height: 200px;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid #502014;
+  background-color: #141414;
+}
+
+.text-muted {
+  opacity: 0.54;
 }

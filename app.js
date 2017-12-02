@@ -22,6 +22,25 @@ app.get('/search/:movie', (req, res) => {
   });
 });
 
+app.get('/boxoffice/:imdbID', async (req, res) => {
+  console.log('inside boxoffice call');
+  const { imdbID } = req.params;
+  try {
+    const movie = await Movie.findOne({ 'imdbID': imdbID });
+
+    if (!movie) {
+      res.send('no movie found');
+    }
+
+    const movies = await Movie.find({ 'Year': movie.Year });
+    res.send(movies);
+
+  } catch (err) {
+    throw err;
+  }
+
+})
+
 app.get('/trends/:title', async (req, res) => {
   const { title } = req.params;
   const trends = await movieTrend(title);
@@ -34,14 +53,12 @@ app.get('/trends/:title', async (req, res) => {
       value: (trend.value[0] / trend.value[1]) * 100,
     };
   });
-  console.log(trendData);
   res.send(trendData);
 });
 
 app.get('/sentiment/:title', async (req, res) => {
   const { title } = req.params;
   const tweets = await avgTweetEmotion(title);
-  console.log(tweets);
   res.send(tweets);
 })
 

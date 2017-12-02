@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GraphContainer from '../containers/GraphContainer.jsx';
+import BoxOfficeGraphContainer from '../containers/BoxOfficeGraphContainer.jsx';
 import MovieInfo from './MovieInfo';
 import Ratings from './Ratings';
 
@@ -28,16 +29,21 @@ export default class MovieDetail extends Component {
       )
     }
     return (
-      <div className="movie-grid">
-        <div className="poster">
-          <img src={movie.Poster} alt="" />
+      <div>
+        <div className="movie-grid">
+          <div className="poster">
+            <img src={movie.Poster} alt="" />
+          </div>
+          <div className='plot'>
+            This is the plot. Lorem ipsum....
+          </div>
+          <div className='producedBy'>
+            {movie.productionCompanies}
+          </div>
         </div>
-        <div className='plot'>
-           This is the plot. Lorem ipsum....
-        </div>
-        <GraphContainer />
-        <div className='producedBy'>
-          {movie.productionCompanies}
+        <BoxOfficeGraphContainer />
+        <div>
+          <h3>There will be other stuff down here</h3>
         </div>
       </div>
     );
