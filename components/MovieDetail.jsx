@@ -28,6 +28,13 @@ export default class MovieDetail extends Component {
         </div>
       )
     }
+    const renderBoxOffice = () => {
+      if (parseInt(movie.Year) >= 2013 && parseInt(movie.Year) < 2017) {
+        return <BoxOfficeGraphContainer />
+      } else {
+        return <h3>Box office graph not available.</h3>
+      }
+    }
     return (
       <div>
         <div className="movie-grid">
@@ -41,7 +48,7 @@ export default class MovieDetail extends Component {
             {movie.productionCompanies}
           </div>
         </div>
-        <BoxOfficeGraphContainer />
+        {renderBoxOffice()}
         <div>
           <h3>There will be other stuff down here</h3>
         </div>

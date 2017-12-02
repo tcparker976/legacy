@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import { ResponsiveContainer, ReferenceLine, BarChart, Bar, Cell, XAxis, YAxis, Tooltip } from 'recharts';
+import { ResponsiveContainer, ReferenceLine, CartesianGrid, BarChart, Label, Bar, Cell, XAxis, YAxis, Tooltip } from 'recharts';
 import MovieTooltip from './MovieTooltip';
 
 export default class BoxOfficeGraph extends Component {
@@ -17,7 +17,6 @@ export default class BoxOfficeGraph extends Component {
   handleBarClick(e) {
     const data = e.activePayload[0].payload;
     const title = data.Title.replace(/\s/g, '+');
-    console.log(data.imdbID);
     if (title !== this.props.movie.Title) {
       this.props.clearMovie();
       this.props.fetchRatings(data.imdbID);
@@ -27,9 +26,9 @@ export default class BoxOfficeGraph extends Component {
     }
     this.props.history.replace(`/moviedetails/${data.imdbID}/${title}`);
   }
-  
+
   render() {
-    const { boxoffice } = this.props;
+    const { boxoffice, movie } = this.props;
     if (!boxoffice) {
       return (
         <div>
@@ -37,15 +36,25 @@ export default class BoxOfficeGraph extends Component {
         </div>
       )
     }
-
+    let rank;
+    boxoffice.forEach((mov, i) => {
+      if (mov.Title === movie.Title) {
+        rank = i+1;
+      }
+    });
     return (
-      <div className="BoxOfficeGraph">
-        <ResponsiveContainer height={500} width={'75%'}>
-          <BarChart data={boxoffice} onClick={this.handleBarClick.bind(this)}>
+      <div className="box-office-graph">
+        <h2 style={{marginBottom: '0px'}}>Box Office: {movie.BoxOffice}</h2>
+        <h4 style={{marginTop: '0px'}}className="text-muted">Rank for {movie.Year}: {rank}</h4>
+        <h2 className="text-muted">Box Office Rankings for {movie.Year}</h2>
+        <ResponsiveContainer height={300}>
+          <BarChart 
+            data={boxoffice} 
+            margin={{ top: 20, right: 0, bottom: 0, left: 45 }}
+            onClick={this.handleBarClick.bind(this)}>
             <Bar type="monotone" dataKey="BoxOffice" stroke="#502014" fill="#502014">
               {boxoffice.map(movie => (
                 <Cell
-                  onClick={() => this.props.history.replace(`/moviedetails/${movie.imdbID}/${this.props.movie.Title.replace(/\s/g, '+')}`)}
                   key={movie.imdbID}
                   fill={
                     movie.Title === this.props.movie.Title
@@ -60,9 +69,17 @@ export default class BoxOfficeGraph extends Component {
                 />
               ))}
             </Bar>
-            <XAxis dataKey="title" type="category" />
-            <YAxis dataKey="BoxOffice" />
-            <Tooltip content={<MovieTooltip />} cursor={{ fill: 'rgba(250, 250, 250, 0.05)' }} />
+            <XAxis dataKey="title" type="category" tickLine={false} />
+            <YAxis 
+              dataKey="BoxOffice" 
+              axisLine={false} 
+              tickLine={false}
+              tickFormatter={tick => `$${tick.toLocaleString()}`}
+               />
+            <CartesianGrid vertical={false} style={{opacity: 0.15}} />
+            <Tooltip 
+            content={<MovieTooltip />} 
+            cursor={{ fill: 'rgba(250, 250, 250, 0.05)' }} />
           </BarChart>
         </ResponsiveContainer>
       </div>

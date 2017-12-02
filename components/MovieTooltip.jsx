@@ -6,10 +6,10 @@ const MovieTooltip = (props) => {
     const { payload } = props.payload[0];
     return (
       <div className="movie-tooltip">
-        <h2>{payload.Title}</h2>
-        <hr />
-        <h4>Box Office: ${payload.BoxOffice.toLocaleString()}</h4>
-        <h5 className="text-muted">Release Date: {payload.Released}</h5>
+        <h4 style={{margin: "0px"}}>{payload.Title}</h4>
+        <hr className="text-muted" />
+        <h5 style={{margin: "0px"}}>Box Office: ${payload.BoxOffice.toLocaleString()}</h5>
+        <h5 style={{margin: "0px"}}className="text-muted">Release Date: {payload.Released}</h5>
       </div>
     )
   }
