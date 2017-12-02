@@ -1,9 +1,9 @@
 .home-grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* width: 100%; */
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr, 1fr;
-  grid-gap: 10px;
-  padding-top: 25px; 
-  padding-left: 50px;
-  padding-right: 50px;
+  grid-gap: 45px;
+  padding-top: 80px;
+  align-self: center;
 }

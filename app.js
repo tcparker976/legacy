@@ -16,7 +16,7 @@ app.get('/latestTen', async (req, res) => {
   const latestTen = await Movie
     .find()
     .sort({"updatedAt": -1})
-    .limit(10);
+    .limit(12);
   res.send(latestTen);
 })
 

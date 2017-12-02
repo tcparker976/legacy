@@ -18,14 +18,22 @@ export default class Home extends Component {
     console.log(movies)
     return (
       <div className="home-grid-container">
-        { movies ? movies.map((movie) => {
+        { movies ? movies
+        .filter(mov => {
+          let img = new Image();
+          img.src = mov.Poster;
+          return mov.Poster !== "N/A" && img.height >= 400
+        })
+        .map((movie, index) => {
 
           return (
-            <Link key={movie.id} to={`/moviedetails/${movie.imdbID}/${movie.Title}`} key={movie.imdbID}>
-              <div className="recent-movie-entry">
-                <img src={movie.Poster} />
-                <h2>{movie.Title}</h2>
-              </div>
+            <Link key={index} to={`/moviedetails/${movie.imdbID}/${movie.Title}`}>
+                <div className="recent-movie-entry">
+                  <div className="recent-movie-entry-flex">
+                    <img src={movie.Poster} />
+                  </div>
+                  <h2 className="recent-movie-title">{movie.Title}</h2>
+                </div>
             </Link>
           )
         }) : null }
