@@ -10,7 +10,7 @@ class NavBar extends Component {
  render() {
    return (
    <div>
-     <nav>
+     <nav className='nav-bar'>
         <div className="logo-container">
             <div className="Kristina">
               <Link to="/"><img className="logo" src="/mars-logo.png"></img></Link>

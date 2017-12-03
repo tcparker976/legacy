@@ -227,13 +227,15 @@ nav {
   background-color: #363535;
 }
 
-.Kristina {
+
+
+/*.Kristina {
   display: flex;
 }
 
 .Kristina:last-child {
   padding-left: 10px;
-}
+}*/
 
 .logo-container {
   display: flex;
