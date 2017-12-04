@@ -11,8 +11,8 @@ const Plot = (props) => {
         <li>{props.movie.Genre[0]}</li>
         <li>{props.movie.Released} ({props.movie.Country})</li>
       </ul>
-      <div class="line"></div>
-      <div class="plot-actual">
+      <div className="line"></div>
+      <div className="plot-actual">
         <p>{props.movie.Plot}</p>
       </div>
     </div>

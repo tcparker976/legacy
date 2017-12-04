@@ -56,8 +56,8 @@ class MovieInfo extends Component {
             {this.handleDirectorsDataType(movie.Director, movie)}
             {this.handleWritersDataType(movie.Writer, movie)}
             <li><b>Stars:</b> <p>{movie.Actors}</p></li>
-        </ul>  
-        <span><b>Awards:</b> <p>{movie.Awards}</p> </span>
+            <li><b>Awards:</b> <p>{movie.Awards}</p> </li>
+        </ul>
       </div>  
       ) 
   }

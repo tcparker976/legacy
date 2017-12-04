@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import BoxOfficeGraphContainer from '../containers/BoxOfficeGraphContainer.jsx';
 import Reviews from './Reviews';
 import MovieInfoContainer from '../containers/MovieInfoContainer';
+import SentimentViewContainer from '../containers/SentimentViewContainer';
 
 export default class MovieDetail extends Component {
 
@@ -39,8 +40,9 @@ export default class MovieDetail extends Component {
       <div className="movie-grid">
         <div className="poster">
           <img src={movie.Poster} alt="Image Unavailiable" />
+          <SentimentViewContainer />  
         </div>
-        <Reviews reviews={movie.Ratings} />
+        <Reviews reviews={movie.Ratings} title={movie.Title} id={movie.imdbID} />
         <MovieInfoContainer />
       </div>
       {renderBoxOffice()}

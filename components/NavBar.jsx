@@ -10,14 +10,14 @@ class NavBar extends Component {
  render() {
    return (
    <div>
-     <nav>
+     <nav className='nav-bar'>
         <div className="logo-container">
             <div className="Kristina">
-              <Link to="/"><img className="logo" src="/mars-logo.png"></img></Link>
+              <Link to="/"><img className="logo" src="/images/mars-logo.png"></img></Link>
             </div>
             <div>
               <Link to="/">
-                <h1 id="site-name">
+                <h1 className="site-name">
                   MarsKlif
                 </h1>
               </Link>
